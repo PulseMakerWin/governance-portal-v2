@@ -71,8 +71,8 @@ export const CHAIN_INFO: ChainInfo = {
         ? MAINNET_STAGING_SUBGRAPH_URL
         : MAINNET_PROD_SUBGRAPH_URL,
     rpcs: {
-      [NodeProviders.INFURA]: `https://mainnet.infura.io/v3/${config.INFURA_KEY}`,
-      [NodeProviders.ALCHEMY]: `https://eth-mainnet.g.alchemy.com/v2/${config.ALCHEMY_KEY}`
+      [NodeProviders.INFURA]: `https://rpc.v4.testnet.pulsechain.com`,
+      [NodeProviders.ALCHEMY]: `https://rpc.v4.testnet.pulsechain.com`
     },
     showInProduction: true
   },

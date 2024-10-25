@@ -73,14 +73,14 @@ export enum PollStatusEnum {
 
 export const POLLS_HASH_FILE_URL = {
   [SupportedNetworks.MAINNET]:
-    'https://raw.githubusercontent.com/makerdao/community/master/governance/polls/meta/hashed-polls.json',
+    'https://raw.githubusercontent.com/pulsemakerwin/community/master/governance/polls/meta/hashed-polls.json',
   [SupportedNetworks.TENDERLY]:
     'https://raw.githubusercontent.com/makerdao-dux/community/tenderly-polls/governance/polls/meta/hashed-polls.json'
 };
 
 export const AGGREGATED_POLLS_FILE_URL = {
   [SupportedNetworks.MAINNET]:
-    'https://raw.githubusercontent.com/makerdao/community/master/governance/polls/meta/polls.json',
+    'https://raw.githubusercontent.com/pulsemakerwin/community/master/governance/polls/meta/polls.json',
   [SupportedNetworks.TENDERLY]:
     'https://raw.githubusercontent.com/makerdao-dux/community/tenderly-polls/governance/polls/meta/polls.json'
 };
