@@ -20,6 +20,9 @@ export default function ConnectNetworkButton({
   activeNetwork,
   disabled
 }: Props): React.ReactElement {
+  // Determine the display name based on the active network
+  const displayName = activeNetwork === 'Mainnet' ? 'PulseChain' : activeNetwork;
+
   return (
     <Button
       aria-label="Connect network"
@@ -46,9 +49,9 @@ export default function ConnectNetworkButton({
     >
       <Flex sx={{ alignItems: 'center' }}>
         <Flex sx={{ mr: [1, 2] }}>
-          <Icon name={activeNetwork} sx={{ width: '22px', height: '22px' }} />
+          <Icon name={displayName} sx={{ width: '22px', height: '22px' }} />
         </Flex>
-        <Text data-testid="active-network-name">{activeNetwork}</Text>
+        <Text data-testid="active-network-name">{displayName}</Text>
       </Flex>
     </Button>
   );

@@ -94,11 +94,14 @@ const NetworkSelect = (): React.ReactElement => {
           switchChain(CHAIN_INFO[chainKey].chainId);
           setShowDialog(false);
         }}
+        
+        //Below changes display of MainNet to Pulsecain, simplest way to leave code original while still notifying user which chain.
       >
         <Icon name={CHAIN_INFO[chainKey].label} sx={{ width: '22px', height: '22px' }} />
-        <Text sx={{ ml: 3 }}>{CHAIN_INFO[chainKey].label}</Text>
+        <Text sx={{ ml: 3 }}>{CHAIN_INFO[chainKey].label === 'Mainnet' ? 'PulseChain' : CHAIN_INFO[chainKey].label}</Text>
       </Flex>
-    ));
+    ))
+    .filter((_, index) => index !== 1); // Removed the Tenderly item from the list;
 
   return (
     <Box sx={{ ml: ['auto', 3, 0] }}>
