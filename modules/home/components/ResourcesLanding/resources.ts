@@ -106,8 +106,8 @@ export const resources: LandingResource[] = [
       'Technical documentation about the MakerDAO protocol, covering all its mechanisms, smart contracts and more.'
   },
   {
-    title: 'PulseMakerWin GitHub',
-    url: 'https://github.com/pulsemakerwin/',
+    title: 'MakerDAO GitHub',
+    url: 'https://github.com/PulseMakerWin/',
     category: ResourceCategory.DEVELOPERS,
     bg: ResourceBackground.DEVELOPERS,
     color: ResourceColor.DEVELOPERS,

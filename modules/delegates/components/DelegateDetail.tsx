@@ -30,12 +30,13 @@ import { useLockedMkr } from 'modules/mkr/hooks/useLockedMkr';
 import DelegatedByAddress from 'modules/delegates/components/DelegatedByAddress';
 import { useAccount } from 'modules/app/hooks/useAccount';
 import { useWeb3 } from 'modules/web3/hooks/useWeb3';
+import AccountComments from 'modules/comments/components/AccountComments';
 import { Address } from 'modules/address/components/Address';
 import { formatDelegationHistory } from '../helpers/formatDelegationHistory';
 import { CoreUnitModal } from './modals/CoreUnitModal';
 import { CoreUnitButton } from './modals/CoreUnitButton';
 import { InternalLink } from 'modules/app/components/InternalLink';
-import DelegateContractInfo from 'modules/migration/components/DelegateContractInfo';
+import DelegateExpiryDate from 'modules/migration/components/DelegateExpiryDate';
 import EtherscanLink from 'modules/web3/components/EtherscanLink';
 
 type PropTypes = {
@@ -73,7 +74,8 @@ export function DelegateDetail({ delegate }: PropTypes): React.ReactElement {
   const tabTitles = [
     delegate.status === DelegateStatusEnum.aligned ? 'Delegate Credentials' : null,
     'Metrics',
-    'Voting History'
+    'Voting History',
+    'Comments'
   ].filter(i => !!i) as string[];
 
   const tabPanels = [
@@ -106,6 +108,9 @@ export function DelegateDetail({ delegate }: PropTypes): React.ReactElement {
     </Box>,
     <Box key="delegate-vote-history">
       <DelegateVoteHistory delegate={delegate} dataKeyDelegateStats={dataKeyDelegateStats} />
+    </Box>,
+    <Box key="account-comments" sx={{ p: [3, 4] }}>
+      <AccountComments address={delegate.voteDelegateAddress} />
     </Box>
   ].filter(i => !!i);
 
@@ -185,7 +190,7 @@ export function DelegateDetail({ delegate }: PropTypes): React.ReactElement {
               date={statsData ? (statsData.lastVote ? statsData.lastVote.blockTimestamp : null) : undefined}
               styles={{ my: 1 }}
             />
-            <DelegateContractInfo delegate={delegate} />
+            <DelegateExpiryDate delegate={delegate} />
           </Flex>
         </Flex>
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>

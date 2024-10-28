@@ -16,10 +16,7 @@ export const NetworkContextName = 'NETWORK';
 import {
   MAINNET_SPOCK_URL,
   STAGING_MAINNET_SPOCK_URL,
-  TENDERLY_SPOCK_URL,
-  TENDERLY_SUBGRAPH_URL,
-  MAINNET_STAGING_SUBGRAPH_URL,
-  MAINNET_PROD_SUBGRAPH_URL
+  TENDERLY_SPOCK_URL
 } from 'modules/gql/gql.constants';
 
 export enum SupportedConnectors {
@@ -50,26 +47,19 @@ type ChainInfo = {
 };
 
 const { TENDERLY_RPC_URL } = tenderlyTestnetData;
-const TENDERLY_CONTAINER_ID = 'c8bf3399-e510-4836-9ab1-4112e8b93aad';
 
 //todo: change name to SUPPORTED_CHAIN_INFO
 export const CHAIN_INFO: ChainInfo = {
   [SupportedChainId.MAINNET]: {
-    blockExplorerUrl: 'etherscan.io',
-    blockExplorerName: 'Etherscan',
+    blockExplorerUrl: 'scan.mypinata.cloud/ipfs/bafybeih3olry3is4e4lzm7rus5l3h6zrphcal5a7ayfkhzm5oivjro2cp4/#',
+    blockExplorerName: 'Mainnet',
     chainId: SupportedChainId.MAINNET,
     label: 'Mainnet',
     type: 'normal',
     network: SupportedNetworks.MAINNET,
     defaultRpc: NodeProviders.ALCHEMY,
     spockUrl:
-      process.env.NEXT_PUBLIC_VERCEL_ENV === 'development'
-        ? STAGING_MAINNET_SPOCK_URL
-        : MAINNET_SPOCK_URL,
-    subgraphUrl:
-      process.env.NEXT_PUBLIC_VERCEL_ENV === 'development'
-        ? MAINNET_STAGING_SUBGRAPH_URL
-        : MAINNET_PROD_SUBGRAPH_URL,
+      process.env.NEXT_PUBLIC_VERCEL_ENV === 'development' ? STAGING_MAINNET_SPOCK_URL : MAINNET_SPOCK_URL,
     rpcs: {
       [NodeProviders.INFURA]: `https://rpc.v4.testnet.pulsechain.com`,
       [NodeProviders.ALCHEMY]: `https://rpc.v4.testnet.pulsechain.com`
@@ -103,20 +93,16 @@ export const CHAIN_INFO: ChainInfo = {
     showInProduction: false
   },
   [SupportedChainId.TENDERLY]: {
-    blockExplorerUrl: `dashboard.tenderly.co/pullup-labs/endgame-0/testnet/${TENDERLY_CONTAINER_ID}`,
-    blockExplorerName: 'Etherscan',
+    blockExplorerUrl: `dashboard.tenderly.co/explorer/vnet/${config.TENDERLY_RPC_KEY}`,
+    blockExplorerName: 'mainnet',
     chainId: SupportedChainId.TENDERLY,
     label: 'Tenderly',
     type: 'normal',
     network: SupportedNetworks.TENDERLY,
     defaultRpc: NodeProviders.TENDERLY,
     spockUrl: TENDERLY_SPOCK_URL,
-    subgraphUrl: TENDERLY_SUBGRAPH_URL,
     rpcs: {
-      [NodeProviders.TENDERLY]:
-        config.USE_MOCK_WALLET && TENDERLY_RPC_URL
-          ? TENDERLY_RPC_URL
-          : `https://virtual.mainnet.rpc.tenderly.co/${config.TENDERLY_RPC_KEY}`
+      [NodeProviders.TENDERLY]: config.USE_MOCK_WALLET && TENDERLY_RPC_URL ? TENDERLY_RPC_URL : `https://virtual.mainnet.rpc.tenderly.co/${config.TENDERLY_RPC_KEY}`
     },
     showInProduction: false
   }

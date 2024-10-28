@@ -16,7 +16,7 @@ export async function getENS({
   provider
 }: {
   address: string;
-  provider: providers.BaseProvider;
+  provider: providers.Web3Provider;
 }): Promise<string | null> {
   try {
     const name = await provider.lookupAddress(address);

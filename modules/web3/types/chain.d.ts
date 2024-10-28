@@ -9,7 +9,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 import { SupportedChainId } from '../constants/chainID';
 import { SupportedNetworks } from '../constants/networks';
 
-export type BlockExplorer = 'Etherscan' | 'Arbiscan' | 'block explorer';
+export type BlockExplorer = 'Mainnet' | 'Arbiscan' | 'block explorer';
 
 export type SupportedChain = {
   blockExplorerUrl: string;
@@ -19,7 +19,6 @@ export type SupportedChain = {
   network: SupportedNetworks;
   defaultRpc: string;
   spockUrl?: string;
-  subgraphUrl?: string;
   type: 'gasless' | 'normal';
   showInProduction: boolean;
   rpcs: {

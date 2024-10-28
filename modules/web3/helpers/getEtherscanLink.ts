@@ -20,9 +20,6 @@ export function getEtherscanLink(
 
   switch (type) {
     case 'transaction':
-      if (network === SupportedNetworks.TENDERLY) {
-        return `${prefix}/tx/mainnet/${data}`;
-      }
       return `${prefix}/tx/${data}`;
     case 'address':
     default:

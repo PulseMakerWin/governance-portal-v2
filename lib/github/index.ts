@@ -19,34 +19,34 @@ const token3 = config.GITHUB_TOKEN_3 ? config.GITHUB_TOKEN_3 : config.GITHUB_TOK
 
 let kitIndex = 0;
 
-const octokits: Octokit[] = [];
+const octokits: Octokit[] = [
+  new Octokit({ auth: token1 }),
+  new Octokit({ auth: token2 }),
+  new Octokit({ auth: token3 }),
+];
 
-try {
-  octokits[0] = new Octokit({ auth: token1 });
-  octokits[1] = new Octokit({ auth: token2 });
-  octokits[2] = new Octokit({ auth: token3 });
-} catch (e) {
-  console.warn(
-    'WARNING: GitHub token not configured correctly. Vote delegates and/or executives will not be fetched'
-  );
-}
+// Function to get the next token and handle rate limits
+const getNextToken = async () => {
+  for (let i = 0; i < octokits.length; i++) {
+    const octokit = octokits[kitIndex];
+    try {
+      const response = await octokit.request('GET /rate_limit');
+      const remaining = response.data.rate.limit - response.data.rate.used;
+      const resetTime = response.data.rate.reset;
 
-export type GithubPage = {
-  name: string;
-  path: string;
-  url: string;
-  download_url: string;
-  type: string;
-};
-
-const getNextToken = () => {
-  if (kitIndex >= octokits.length - 1) {
-    kitIndex = 0;
-  } else {
-    kitIndex++;
+      if (remaining > 0) {
+        return octokit;
+      } else {
+        console.warn(
+          `Token ${kitIndex + 1} rate limit exceeded, switching to the next token. Reset at ${new Date(resetTime * 1000)}`
+        );
+        kitIndex = (kitIndex + 1) % octokits.length;
+      }
+    } catch (error) {
+      console.error(`Error fetching rate limit for token ${kitIndex + 1}:`, error);
+    }
   }
-
-  return octokits[kitIndex];
+  throw new Error('All tokens have exceeded their rate limits');
 };
 
 export async function fetchGitHubPage(owner: string, repo: string, path: string): Promise<GithubPage[]> {
@@ -67,7 +67,7 @@ export async function fetchGithubGraphQL(
   { owner, repo, page }: RepositoryInfo,
   query: string
 ): Promise<GraphQlQueryResponseData> {
-  const octokit = getNextToken();
+  const octokit = await getNextToken();
   const data = await octokit.graphql(query, { owner, name: repo, expression: `master:${page}` });
 
   return data as GraphQlQueryResponseData;

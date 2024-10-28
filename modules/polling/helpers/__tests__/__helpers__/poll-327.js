@@ -13,5 +13,5 @@ export default {
   endDate: 1602172800,
   creator: '',
   blockCreated: 123123,
-  url: 'https://raw.githubusercontent.com/makerdao/community/master/governance/polls/Add%20an%20ETH-B%20Vault%20Type%20-%20October%205%2C%202020.md'
+  url: 'https://raw.githubusercontent.com/PulseMakerWin/community/master/governance/polls/Add%20an%20ETH-B%20Vault%20Type%20-%20October%205%2C%202020.md'
 };

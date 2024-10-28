@@ -280,13 +280,25 @@ export default function SystemStatsSidebar({
       );
     }
   };
-//Removed External Link to DaiStats
+
   return (
     <Box sx={{ display: ['none', 'block'] }} className={className}>
       <Flex sx={{ flexDirection: 'row', justifyContent: 'space-between', mb: 2, mt: 3 }}>
         <Heading as="h3" variant="microHeading">
           System Info
-        </Heading>        
+        </Heading>
+        <ExternalLink
+          href="https://daistats.com/"
+          target="_blank"
+          sx={{ color: 'accentBlue', fontSize: 3, ':hover': { color: 'accentBlueEmphasis' } }}
+        >
+          <Flex sx={{ alignItems: 'center' }}>
+            <Text>
+              See more
+              <Icon ml={2} name="arrowTopRight" size={2} />
+            </Text>
+          </Flex>
+        </ExternalLink>
       </Flex>
       <Card variant="compact">
         <Stack gap={3}>{fields.map(field => statsMap[field](field))}</Stack>

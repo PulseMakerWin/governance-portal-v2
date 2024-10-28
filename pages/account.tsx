@@ -45,9 +45,9 @@ const AccountPage = (): React.ReactElement => {
     votingAccount
   } = useAccount();
 
-  const { latestOwnerConnected, latestOwnerHasDelegateContract, originalOwnerAddress } = useLinkedDelegateInfo();
+  const { newOwnerConnected, newOwnerHasDelegateContract, previousOwnerAddress } = useLinkedDelegateInfo();
   const { data: addressInfo, error: errorLoadingAddressInfo } = useAddressInfo(votingAccount, network);
-  const { data: originalOwnerContractAddress } = useVoteDelegateAddress(originalOwnerAddress);
+  const { data: previousOwnerContractAddress } = useVoteDelegateAddress(previousOwnerAddress);
   const { data: chiefBalance } = useLockedMkr(voteProxyContractAddress || account);
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -110,14 +110,14 @@ const AccountPage = (): React.ReactElement => {
                     />
                   </Box>
                 )}
-                {latestOwnerConnected && originalOwnerContractAddress && (
+                {newOwnerConnected && previousOwnerContractAddress && (
                   <Box sx={{ mb: 2 }}>
-                    <Label>Original delegate contract address:</Label>
+                    <Label>Previous delegate contract address:</Label>
 
                     <EtherscanLink
                       type="address"
                       showAddress
-                      hash={originalOwnerContractAddress}
+                      hash={previousOwnerContractAddress}
                       network={network}
                     />
                   </Box>
@@ -140,7 +140,7 @@ const AccountPage = (): React.ReactElement => {
                 {!voteDelegateContractAddress && (
                   <Box>
                     <Label>
-                      {latestOwnerConnected && !latestOwnerHasDelegateContract
+                      {newOwnerConnected && !newOwnerHasDelegateContract
                         ? 'Create a new delegate contract'
                         : 'No vote delegate contract detected'}
                     </Label>

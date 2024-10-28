@@ -8,11 +8,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 import logger from 'lib/logger';
 import { gqlRequest } from 'modules/gql/gqlRequest';
-import { delegateHistoryArray } from 'modules/gql/queries/subgraph/delegateHistoryArray';
+import { mkrLockedDelegateArrayTotalsV2 } from 'modules/gql/queries/mkrLockedDelegateArray';
 import { SupportedNetworks } from 'modules/web3/constants/networks';
 import { networkNameToChainId } from 'modules/web3/helpers/chain';
 import { MKRLockedDelegateAPIResponse } from '../types';
-import { utils } from 'ethers';
 
 export async function fetchDelegationEventsByAddresses(
   addresses: string[],
@@ -21,26 +20,14 @@ export async function fetchDelegationEventsByAddresses(
   try {
     const data = await gqlRequest({
       chainId: networkNameToChainId(network),
-      useSubgraph: true,
-      query: delegateHistoryArray,
+      query: mkrLockedDelegateArrayTotalsV2,
       variables: {
-        delegates: addresses
+        argAddress: addresses,
+        argUnixTimeStart: 0,
+        argUnixTimeEnd: Math.floor(Date.now() / 1000)
       }
     });
-    const flattenedData = data.delegates.flatMap(delegate => delegate.delegationHistory);
-
-    const addressData: MKRLockedDelegateAPIResponse[] = flattenedData.map(x => {
-      return {
-        delegateContractAddress: x.delegate.id,
-        immediateCaller: x.delegator,
-        lockAmount: utils.formatEther(x.amount),
-        blockNumber: x.blockNumber,
-        blockTimestamp: new Date(parseInt(x.timestamp) * 1000).toISOString(),
-        hash: x.txnHash,
-        callerLockTotal: utils.formatEther(x.accumulatedAmount),
-        isLockstake: x.isLockstake
-      };
-    });
+    const addressData: MKRLockedDelegateAPIResponse[] = data.mkrLockedDelegateArrayTotalsV2.nodes;
     return addressData;
   } catch (e) {
     logger.error('fetchDelegationEventsByAddresses: Error fetching delegation events', e.message);

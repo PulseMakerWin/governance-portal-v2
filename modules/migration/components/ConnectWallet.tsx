@@ -12,7 +12,7 @@ import { useLinkedDelegateInfo } from 'modules/migration/hooks/useLinkedDelegate
 import { ExternalLink } from 'modules/app/components/ExternalLink';
 
 export function ConnectWallet(): JSX.Element {
-  const { latestOwnerAddress } = useLinkedDelegateInfo();
+  const { newOwnerAddress } = useLinkedDelegateInfo();
   return (
     <Flex sx={{ flexDirection: 'column' }}>
       <Flex sx={{ flexDirection: 'column' }}>
@@ -20,7 +20,7 @@ export function ConnectWallet(): JSX.Element {
           Please switch from your old delegate address to your new delegate address
         </Text>
         <Label sx={{ mt: 4 }}>Your new address</Label>
-        <Text variant="secondary">{latestOwnerAddress}</Text>
+        <Text variant="secondary">{newOwnerAddress}</Text>
       </Flex>
       <Flex sx={{ width: '100%', my: 4 }}>
         <img src="/assets/switch-account-metamask.gif" />

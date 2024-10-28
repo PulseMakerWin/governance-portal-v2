@@ -16,7 +16,7 @@ import { Icon } from '@makerdao/dai-ui-icons';
 import { InternalLink } from 'modules/app/components/InternalLink';
 import { DialogContent, DialogOverlay } from 'modules/app/components/Dialog';
 
-export default function DelegateContractInfo({
+export default function DelegateExpiryDate({
   delegate,
   reverse
 }: {
@@ -26,7 +26,7 @@ export default function DelegateContractInfo({
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
-    if (delegate.delegateVersion === 2 || (!delegate.isAboutToExpire && !delegate.expired)) {
+    if (!delegate.isAboutToExpire && !delegate.expired) {
       return;
     }
     setModalOpen(true);
@@ -43,21 +43,12 @@ export default function DelegateContractInfo({
       }}
       onClick={openModal}
     >
-      <Text variant="caps" color="onSecondary" sx={{ mr: delegate.delegateVersion === 2 ? 0 : 1 }}>
-        {delegate.delegateVersion === 2 ? 'V2' : 'V1 | '}
-      </Text>
-      <Text variant="caps" color={'onSecondary'} sx={{ mr: delegate.delegateVersion === 2 ? 0 : 2 }}>
+      <Text variant="caps" color={'onSecondary'} sx={{ mr: 2 }}>
         <Flex>
           <Text sx={{ mr: 1 }}>
-            {delegate.delegateVersion === 2
-              ? ''
-              : delegate.expired
-              ? 'EXPIRED'
-              : delegate.isAboutToExpire
-              ? 'EXPIRING'
-              : 'EXPIRES'}
+            {delegate.expired ? 'EXPIRED' : delegate.isAboutToExpire ? 'EXPIRING' : 'EXPIRES'}
           </Text>{' '}
-          {delegate.delegateVersion !== 2 && <DateWithHover date={delegate.expirationDate} />}
+          <DateWithHover date={delegate.expirationDate} />
         </Flex>
       </Text>
       <Flex
@@ -66,7 +57,7 @@ export default function DelegateContractInfo({
           mr: reverse ? 2 : [2, 0]
         }}
       >
-        {delegate.delegateVersion !== 2 && !delegate.expired && !delegate.isAboutToExpire && (
+        {!delegate.expired && !delegate.isAboutToExpire && (
           <LocalIcon
             name="calendarcross"
             sx={{
