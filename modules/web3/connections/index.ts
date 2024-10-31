@@ -10,9 +10,9 @@ import { initializeConnector } from '@web3-react/core';
 import { Connector } from '@web3-react/types';
 import { Network } from '@web3-react/network';
 import { MetaMask } from '@web3-react/metamask';
-import { WalletConnect } from '@web3-react/walletconnect-v2';
-import { CoinbaseWallet } from '@web3-react/coinbase-wallet';
-import { GnosisSafe } from '@makerdao-dux/gnosis-safe';
+//import { WalletConnect } from '@web3-react/walletconnect-v2';
+//import { CoinbaseWallet } from '@web3-react/coinbase-wallet';
+//import { GnosisSafe } from '@makerdao-dux/gnosis-safe';
 import { getRPCFromChainID } from 'modules/web3/helpers/getRPC';
 import { SupportedChainId } from 'modules/web3/constants/chainID';
 import { SUPPORTED_WALLETS, ConnectionType } from '../constants/wallets';
@@ -34,7 +34,7 @@ const [web3Network, web3NetworkHooks] = initializeConnector<Network>(
         [SupportedChainId.MAINNET]: getRPCFromChainID(SupportedChainId.MAINNET),
         [SupportedChainId.TENDERLY]: getRPCFromChainID(SupportedChainId.TENDERLY)
       },
-      defaultChainId: 1
+      defaultChainId: 943
     })
 );
 export const networkConnection: Connection = {
@@ -52,7 +52,7 @@ export const metamaskConnection: Connection = {
 };
 
 // walletconnect
-const [web3WalletConnect, web3WalletConnectHooks] = initializeConnector<WalletConnect>(
+/*const [web3WalletConnect, web3WalletConnectHooks] = initializeConnector<WalletConnect>(
   actions =>
     new WalletConnect({
       actions,
@@ -116,7 +116,7 @@ export const gnosisSafeConnection: Connection = {
   connector: web3GnosisSafe as any,
   hooks: web3GnosisSafeHooks,
   type: ConnectionType.GNOSIS_SAFE
-};
+};*/
 
 //mock connector
 let mockConnection: Connection | undefined = undefined;
@@ -140,18 +140,18 @@ if (config.USE_MOCK_WALLET && process.env.NODE_ENV !== 'production') {
 
 
 export const orderedConnectionTypes = [
-  gnosisSafeConnection.type,
-  coinbaseWalletConnection.type,
-  walletConnectConnection.type,
+  //gnosisSafeConnection.type,
+  //coinbaseWalletConnection.type,
+  //walletConnectConnection.type,
   metamaskConnection.type,
   networkConnection.type,
   ...(mockConnection ? [mockConnection.type] : [])
 ];
 
 const CONNECTIONS = [
-  gnosisSafeConnection,
-  coinbaseWalletConnection,
-  walletConnectConnection,
+  //gnosisSafeConnection,
+  //coinbaseWalletConnection,
+  //walletConnectConnection,
   metamaskConnection,
   networkConnection,
   ...(mockConnection ? [mockConnection] : [])
@@ -169,14 +169,14 @@ export function getConnection(c: Connector | ConnectionType): Connection {
     switch (c) {
       case ConnectionType.METAMASK:
         return metamaskConnection;
-      case ConnectionType.COINBASE_WALLET:
+      /*case ConnectionType.COINBASE_WALLET:
         return coinbaseWalletConnection;
       case ConnectionType.WALLET_CONNECT:
         return walletConnectConnection;
+      case ConnectionType.GNOSIS_SAFE:
+        return gnosisSafeConnection;*/
       case ConnectionType.NETWORK:
         return networkConnection;
-      case ConnectionType.GNOSIS_SAFE:
-        return gnosisSafeConnection;
       case ConnectionType.MOCK:
        return mockConnection || networkConnection;
       default:
@@ -191,12 +191,12 @@ export function connectorToWalletName(connector: Connector) {
   switch (connection?.type) {
     case ConnectionType.METAMASK:
       return SUPPORTED_WALLETS.MetaMask?.name;
-    case ConnectionType.COINBASE_WALLET:
-      return SUPPORTED_WALLETS['Coinbase Wallet']?.name;
-    case ConnectionType.WALLET_CONNECT:
-      return SUPPORTED_WALLETS.WalletConnect?.name;
-    case ConnectionType.GNOSIS_SAFE:
-      return SUPPORTED_WALLETS['Gnosis Safe']?.name;
+    //case ConnectionType.COINBASE_WALLET:
+      //return SUPPORTED_WALLETS['Coinbase Wallet']?.name;
+    //case ConnectionType.WALLET_CONNECT:
+      //return SUPPORTED_WALLETS.WalletConnect?.name;
+    //case ConnectionType.GNOSIS_SAFE:
+      //return SUPPORTED_WALLETS['Gnosis Safe']?.name;
     case ConnectionType.MOCK:
       return SUPPORTED_WALLETS.Mock?.name;
   }

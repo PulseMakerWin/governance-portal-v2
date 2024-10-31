@@ -13,9 +13,18 @@ import { BlockExplorer } from '../types/chain';
 import { getRPCFromChainID } from './getRPC';
 
 export const chainIdToNetworkName = (chainId?: number): SupportedNetworks => {
-  if (!chainId) return SupportedNetworks.MAINNET;
-  if (CHAIN_INFO[chainId]) return CHAIN_INFO[chainId].network;
-  throw new Error(`Unsupported chain id ${chainId}`);
+  if (!chainId) {
+    console.warn('No chain ID provided, defaulting to MAINNET');
+    return SupportedNetworks.MAINNET;
+  }
+  
+  const chainInfo = CHAIN_INFO[chainId];
+  if (chainInfo) {
+    return chainInfo.network;
+  }
+
+  console.error(`Unsupported chain ID: ${chainId}. Please check your CHAIN_INFO configuration.`);
+  throw new Error(`Unsupported chain ID: ${chainId}`);
 };
 
 export const networkNameToChainId = (networkName: string): number => {

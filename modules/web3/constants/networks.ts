@@ -21,9 +21,9 @@ import {
 
 export enum SupportedConnectors {
   METAMASK = 'MetaMask',
-  WALLET_CONNECT = 'WalletConnect',
-  COINBASE_WALLET = 'Coinbase Wallet',
-  GNOSIS_SAFE = 'Gnosis Safe',
+  //WALLET_CONNECT = 'WalletConnect',
+  //COINBASE_WALLET = 'Coinbase Wallet',
+  //GNOSIS_SAFE = 'Gnosis Safe',
   NETWORK = 'Network',
   MOCK = 'Mock'
 }
@@ -51,7 +51,7 @@ const { TENDERLY_RPC_URL } = tenderlyTestnetData;
 //todo: change name to SUPPORTED_CHAIN_INFO
 export const CHAIN_INFO: ChainInfo = {
   [SupportedChainId.MAINNET]: {
-    blockExplorerUrl: 'scan.mypinata.cloud/ipfs/bafybeih3olry3is4e4lzm7rus5l3h6zrphcal5a7ayfkhzm5oivjro2cp4/#',
+    blockExplorerUrl: 'scan.v4.testnet.pulsechain.com/#',
     blockExplorerName: 'Mainnet',
     chainId: SupportedChainId.MAINNET,
     label: 'Mainnet',
@@ -94,7 +94,7 @@ export const CHAIN_INFO: ChainInfo = {
   },
   [SupportedChainId.TENDERLY]: {
     blockExplorerUrl: `dashboard.tenderly.co/explorer/vnet/${config.TENDERLY_RPC_KEY}`,
-    blockExplorerName: 'mainnet',
+    blockExplorerName: 'Mainnet',
     chainId: SupportedChainId.TENDERLY,
     label: 'Tenderly',
     type: 'normal',

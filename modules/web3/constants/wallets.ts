@@ -12,10 +12,10 @@ import { config } from 'lib/config';
 
 export enum ConnectionType {
   METAMASK = 'METAMASK',
-  COINBASE_WALLET = 'COINBASE_WALLET',
-  WALLET_CONNECT = 'WALLET_CONNECT',
+  //COINBASE_WALLET = 'COINBASE_WALLET',
+  //WALLET_CONNECT = 'WALLET_CONNECT',
   NETWORK = 'NETWORK',
-  GNOSIS_SAFE = 'GNOSIS_SAFE',
+  //GNOSIS_SAFE = 'GNOSIS_SAFE',
   MOCK = 'MOCK'
 }
 
@@ -28,10 +28,10 @@ export const SUPPORTED_WALLETS: {
     connectionType: ConnectionType.METAMASK,
     deeplinkUri: 'https://metamask.app.link/dapp/vote.makerdao.com/'
   },
-  [SupportedConnectors.WALLET_CONNECT]: {
+  /*[SupportedConnectors.WALLET_CONNECT]: {
     name: SupportedConnectors.WALLET_CONNECT,
     connectionType: ConnectionType.WALLET_CONNECT
-  },
+  }
   [SupportedConnectors.COINBASE_WALLET]: {
     name: SupportedConnectors.COINBASE_WALLET,
     connectionType: ConnectionType.COINBASE_WALLET
@@ -39,7 +39,7 @@ export const SUPPORTED_WALLETS: {
   [SupportedConnectors.GNOSIS_SAFE]: {
     name: SupportedConnectors.GNOSIS_SAFE,
     connectionType: ConnectionType.GNOSIS_SAFE
-  }
+  }*/
 };
 
 if (config.USE_MOCK_WALLET && process.env.NODE_ENV !== 'production') {

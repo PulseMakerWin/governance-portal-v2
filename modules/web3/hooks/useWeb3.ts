@@ -16,9 +16,15 @@ export function useWeb3(): Web3ContextType & { network: SupportedNetworks } {
 
   let network;
   try {
-    network = chainIdToNetworkName(context.chainId);
+    if (context.chainId === undefined) {
+      logger.warn('Chain ID is undefined, using default network');
+      network = SupportedNetworks.MAINNET;
+    } else {
+      network = chainIdToNetworkName(context.chainId);
+    }
   } catch (err) {
-    logger.warn('connected to unsupported network');
+    logger.error('Error determining network:', err);
+    logger.warn('Connected to unsupported network');
   }
 
   return {
