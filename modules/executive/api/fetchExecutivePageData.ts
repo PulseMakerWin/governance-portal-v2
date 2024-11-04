@@ -20,7 +20,7 @@ const EXEC_SORT_BY = 'active';
 
 export async function fetchExecutivePageData(
   network: SupportedNetworks,
-  useApi = false
+  useApi = true
 ): Promise<ExecutivePageData> {
   const proposals = useApi
     ? await fetchJson(

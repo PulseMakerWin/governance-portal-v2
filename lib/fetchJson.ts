@@ -6,8 +6,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 
 */
 
-export async function fetchJson(url: RequestInfo, init?: RequestInit): Promise<any> {
-  const response = await fetch(url, init);
+export async function fetchJson(url: string, init?: RequestInit): Promise<any> {
+  const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
+  const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
+
+  const response = await fetch(fullUrl, init);
   const json = await response.json();
 
   if (!response.ok) {

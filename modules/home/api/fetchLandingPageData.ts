@@ -37,7 +37,7 @@ export type LandingPageData = {
 
 export async function fetchLandingPageData(
   network: SupportedNetworks,
-  useApi = false
+  useApi = true
 ): Promise<Partial<LandingPageData>> {
   const EXEC_FETCH_SIZE = 5;
   const EXEC_SORT_BY = 'active';

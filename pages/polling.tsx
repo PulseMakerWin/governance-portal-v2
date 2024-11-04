@@ -548,7 +548,8 @@ export default function PollingOverviewPage({
 
 export const getStaticProps: GetStaticProps = async () => {
   const { polls, tags, stats, paginationInfo, activePollIds } = await fetchPollingPageData(
-    SupportedNetworks.MAINNET
+    SupportedNetworks.MAINNET,
+    true
   );
 
   return {

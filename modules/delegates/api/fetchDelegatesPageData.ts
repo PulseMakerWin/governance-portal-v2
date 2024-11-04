@@ -24,7 +24,7 @@ export type DelegatesQueryParams = {
 
 export async function fetchDelegatesPageData(
   network: SupportedNetworks,
-  useApi = false,
+  useApi = true,
   queryParams?: DelegatesQueryParams
 ): Promise<DelegatesPaginatedAPIResponse> {
   const pageSize = 30;

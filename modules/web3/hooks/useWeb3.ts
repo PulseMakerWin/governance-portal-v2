@@ -11,24 +11,20 @@ import logger from 'lib/logger';
 import { SupportedNetworks } from '../constants/networks';
 import { chainIdToNetworkName } from '../helpers/chain';
 
-export function useWeb3(): Web3ContextType & { network: SupportedNetworks } {
+export function useWeb3(): Web3ContextType & { network?: SupportedNetworks } {
   const context = useWeb3React();
 
   let network;
   try {
-    if (context.chainId === undefined) {
-      logger.warn('Chain ID is undefined, using default network');
-      network = SupportedNetworks.MAINNET;
-    } else {
+    if (context.chainId != null) {
       network = chainIdToNetworkName(context.chainId);
     }
   } catch (err) {
-    logger.error('Error determining network:', err);
-    logger.warn('Connected to unsupported network');
+    logger.warn('Connected to an unsupported network');
   }
 
   return {
     ...context,
-    network
+    network,
   };
 }
