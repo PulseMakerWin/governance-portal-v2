@@ -125,7 +125,7 @@ const resources: Record<ResourceType, Resource> = {
         url: 'https://manual.makerdao.com/delegation/for-mkr-holders/mkr-holder-guide'
       }
     ]
-  },
+  }
 };
 
 export default function ResourceBox({

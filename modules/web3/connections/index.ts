@@ -138,7 +138,6 @@ if (config.USE_MOCK_WALLET && process.env.NODE_ENV !== 'production') {
   };
 }
 
-
 export const orderedConnectionTypes = [
   //gnosisSafeConnection.type,
   //coinbaseWalletConnection.type,
@@ -159,7 +158,6 @@ const CONNECTIONS = [
 
 export function getConnection(c: Connector | ConnectionType): Connection {
   if (c instanceof Connector) {
-
     const connection = CONNECTIONS.find(connection => connection.connector === c);
     if (!connection) {
       throw Error('unsupported connector');
@@ -178,7 +176,7 @@ export function getConnection(c: Connector | ConnectionType): Connection {
       case ConnectionType.NETWORK:
         return networkConnection;
       case ConnectionType.MOCK:
-       return mockConnection || networkConnection;
+        return mockConnection || networkConnection;
       default:
         return networkConnection;
     }
@@ -192,11 +190,11 @@ export function connectorToWalletName(connector: Connector) {
     case ConnectionType.METAMASK:
       return SUPPORTED_WALLETS.MetaMask?.name;
     //case ConnectionType.COINBASE_WALLET:
-      //return SUPPORTED_WALLETS['Coinbase Wallet']?.name;
+    //return SUPPORTED_WALLETS['Coinbase Wallet']?.name;
     //case ConnectionType.WALLET_CONNECT:
-      //return SUPPORTED_WALLETS.WalletConnect?.name;
+    //return SUPPORTED_WALLETS.WalletConnect?.name;
     //case ConnectionType.GNOSIS_SAFE:
-      //return SUPPORTED_WALLETS['Gnosis Safe']?.name;
+    //return SUPPORTED_WALLETS['Gnosis Safe']?.name;
     case ConnectionType.MOCK:
       return SUPPORTED_WALLETS.Mock?.name;
   }

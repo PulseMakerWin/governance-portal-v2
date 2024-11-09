@@ -62,12 +62,12 @@ const NetworkSelect = (): React.ReactElement => {
         return;
       }
 
-       try {
-         await connector.activate(desiredChainId === -1 ? undefined : desiredChainId);
-         setError(undefined);
-       } catch (err) {
-         setError(err);
-       }
+      try {
+        await connector.activate(desiredChainId === -1 ? undefined : desiredChainId);
+        setError(undefined);
+      } catch (err) {
+        setError(err);
+      }
     },
     [connector, chainId, setError]
   );
@@ -79,12 +79,11 @@ const NetworkSelect = (): React.ReactElement => {
 
   const close = () => setShowDialog(false);
 
-  const isProduction = process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_VERCEL_ENV !== 'development';
+  const isProduction =
+    process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_VERCEL_ENV !== 'development';
 
   const networkOptions = Object.keys(CHAIN_INFO)
-    .filter(
-      k => CHAIN_INFO[k].type === 'normal'
-    )
+    .filter(k => CHAIN_INFO[k].type === 'normal')
     .filter(k => !isProduction || CHAIN_INFO[k].showInProduction)
     .map(chainKey => {
       const label = CHAIN_INFO[chainKey].label;
@@ -100,9 +99,7 @@ const NetworkSelect = (): React.ReactElement => {
           }}
         >
           <Icon name={displayName} sx={{ width: '22px', height: '22px' }} />
-          <Text sx={{ ml: 3 }}>
-            {displayName}
-          </Text>
+          <Text sx={{ ml: 3 }}>{displayName}</Text>
         </Flex>
       );
     })

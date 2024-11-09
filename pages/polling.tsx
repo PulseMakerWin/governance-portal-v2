@@ -547,19 +547,33 @@ export default function PollingOverviewPage({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { polls, tags, stats, paginationInfo, activePollIds } = await fetchPollingPageData(
-    SupportedNetworks.MAINNET,
-    true
-  );
+  try {
+    const { polls, tags, stats, paginationInfo, activePollIds } = await fetchPollingPageData(
+      SupportedNetworks.MAINNET,
+      true
+    );
 
-  return {
-    revalidate: 60, // revalidate every 60 seconds
-    props: {
-      polls,
-      tags,
-      stats,
-      paginationInfo,
-      activePollIds
-    }
-  };
+    return {
+      revalidate: 60, // revalidate every 60 seconds
+      props: {
+        polls,
+        tags,
+        stats,
+        paginationInfo,
+        activePollIds
+      }
+    };
+  } catch (error) {
+    console.error('Error fetching polling page data:', error);
+    return {
+      revalidate: 60,
+      props: {
+        polls: [],
+        tags: [],
+        stats: { active: 0, finished: 0, total: 0 },
+        paginationInfo: { totalCount: 0, page: 0, numPages: 0, hasNextPage: false },
+        activePollIds: []
+      }
+    };
+  }
 };

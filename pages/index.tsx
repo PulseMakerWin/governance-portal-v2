@@ -168,7 +168,8 @@ const LandingPage = ({
                     Voting Portal
                   </Heading>
                   <Text as="p" sx={{ fontWeight: 'semiBold', my: 3, width: ['100%', '100%', '80%'] }}>
-                    Vote with or delegate your MKR tokens to help protect the integrity of the PulseMaker protocol
+                    Vote with or delegate your MKR tokens to help protect the integrity of the PulseMaker
+                    protocol
                   </Text>
                   <Box>
                     <PlayButton

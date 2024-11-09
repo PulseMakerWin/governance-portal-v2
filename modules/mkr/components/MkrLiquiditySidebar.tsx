@@ -34,10 +34,12 @@ const sushiswapAddress = '0xba13afecda9beb75de5c56bbaf696b880a5a50dd';
 const compoundCTokenAddress = '0x95b4eF2869eBD94BEb4eEE400a99824BF5DC325b';
 
 async function getBalancerV1Mkr(mkrAddress: string) {
-  const resp = await fetch(`https://gateway-arbitrum.network.thegraph.com/api/${config.SUBGRAPH_API_KEY}/subgraphs/id/93yusydMYauh7cfe9jEfoGABmwnX4GffHd7in8KJi1XB`, {
-    method: 'post',
-    body: JSON.stringify({
-      query: `
+  const resp = await fetch(
+    `https://gateway-arbitrum.network.thegraph.com/api/${config.SUBGRAPH_API_KEY}/subgraphs/id/93yusydMYauh7cfe9jEfoGABmwnX4GffHd7in8KJi1XB`,
+    {
+      method: 'post',
+      body: JSON.stringify({
+        query: `
           query PostsForPools {
             pools(where: {tokensList_contains: ["${mkrAddress}"], publicSwap: true}) {
               tokens {
@@ -48,8 +50,9 @@ async function getBalancerV1Mkr(mkrAddress: string) {
             }
           }
           `
-    })
-  });
+      })
+    }
+  );
   const json = await resp.json();
   const balancerNum = json.data.pools
     .flatMap(pool => pool.tokens)
@@ -58,10 +61,12 @@ async function getBalancerV1Mkr(mkrAddress: string) {
 }
 
 async function getBalancerV2Mkr(mkrAddress: string) {
-  const resp = await fetch(`https://gateway-arbitrum.network.thegraph.com/api/${config.SUBGRAPH_API_KEY}/subgraphs/id/C4ayEZP2yTXRAB8vSaTrgN4m9anTe9Mdm2ViyiAuV9TV`, {
-    method: 'post',
-    body: JSON.stringify({
-      query: `
+  const resp = await fetch(
+    `https://gateway-arbitrum.network.thegraph.com/api/${config.SUBGRAPH_API_KEY}/subgraphs/id/C4ayEZP2yTXRAB8vSaTrgN4m9anTe9Mdm2ViyiAuV9TV`,
+    {
+      method: 'post',
+      body: JSON.stringify({
+        query: `
           query PostsForPools {
             pools(where: {tokensList_contains: ["${mkrAddress}"]}) {
               tokens {
@@ -72,8 +77,9 @@ async function getBalancerV2Mkr(mkrAddress: string) {
             }
           }
           `
-    })
-  });
+      })
+    }
+  );
   const json = await resp.json();
   const balancerNum = json.data.pools
     .flatMap(pool => pool.tokens)
@@ -105,7 +111,10 @@ export default function MkrLiquiditySidebar({
   const { data: aaveV2 } = useTokenBalance(Tokens.MKR, aaveV2Amkr);
   const { data: uniswapV2MkrEth } = useTokenBalance(Tokens.MKR, uniswapV2MkrEthPool);
   const { data: uniswapV2MkrDai } = useTokenBalance(Tokens.MKR, uniswapV2MkrDaiPool);
-  const { data: uniswapV3MkrEthPointThreePercent } = useTokenBalance(Tokens.MKR, uniswapV3MkrEthPointThreePercentPool);
+  const { data: uniswapV3MkrEthPointThreePercent } = useTokenBalance(
+    Tokens.MKR,
+    uniswapV3MkrEthPointThreePercentPool
+  );
   const { data: uniswapV3MkrEthOnePercent } = useTokenBalance(Tokens.MKR, uniswapV3MkrEthOnePercentPool);
   const { data: sushi } = useTokenBalance(Tokens.MKR, sushiswapAddress);
 
@@ -144,7 +153,14 @@ export default function MkrLiquiditySidebar({
     ],
     [
       'Uniswap',
-      uniswapV2MkrEth && uniswapV2MkrDai && uniswapV3MkrEthPointThreePercent && uniswapV3MkrEthOnePercent && uniswapV2MkrEth?.add(uniswapV2MkrDai).add(uniswapV3MkrEthPointThreePercent).add(uniswapV3MkrEthOnePercent),
+      uniswapV2MkrEth &&
+        uniswapV2MkrDai &&
+        uniswapV3MkrEthPointThreePercent &&
+        uniswapV3MkrEthOnePercent &&
+        uniswapV2MkrEth
+          ?.add(uniswapV2MkrDai)
+          .add(uniswapV3MkrEthPointThreePercent)
+          .add(uniswapV3MkrEthOnePercent),
       [
         ['Uniswap V2 (MKR/DAI)', uniswapV2MkrDai],
         ['Uniswap V3 (MKR/ETH 0.3%)', uniswapV3MkrEthPointThreePercent],

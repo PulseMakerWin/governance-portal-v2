@@ -57,12 +57,6 @@ const AccountSelect = (): React.ReactElement => {
     setError(null);
   };
 
-  const handleModalToggle = (connectionType: ConnectionType, shouldOpenModal: boolean) => {
-    if (connectionType === ConnectionType.WALLET_CONNECT) {
-      shouldOpenModal ? setShowDialog(true) : setTimeout(() => setShowDialog(false), 1500);
-    }
-  };
-
   // Handles UI state for loading
   const [loadingConnectors, setLoadingConnectors] = useState({});
   const [error, setError] = useState<string | null>(null);
@@ -89,9 +83,6 @@ const AccountSelect = (): React.ReactElement => {
         [name]: true
       });
 
-      // Temporarily close the connections modal to move focus to the WalletConnect modal
-      handleModalToggle(connectionType, false);
-
       // This is needed because of this issue https://github.com/MetaMask/metamask-extension/issues/3133
       checkInjectedProvider();
 
@@ -109,8 +100,6 @@ const AccountSelect = (): React.ReactElement => {
       setLoadingConnectors({
         [name]: false
       });
-      // Open modal again after failed WalletConnect connection to display the error
-      handleModalToggle(connectionType, true);
     }
   };
 

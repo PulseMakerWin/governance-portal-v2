@@ -81,10 +81,10 @@ export default function ReviewBox({
     relayFunded;
 
   // Detect if the current user is using a gnosis safe, and change the UI for comments and signatures
-  const isGnosisSafe = getConnection(connector).type === ConnectionType.GNOSIS_SAFE;
+  //const isGnosisSafe = getConnection(connector).type === ConnectionType.GNOSIS_SAFE;
 
-  const canUseGasless = !isGnosisSafe && validationPassed;
-  const canUseComments = !isGnosisSafe;
+  const canUseGasless = validationPassed; //Removed Gnosis_Safe as option
+  const canUseComments = true;
 
   useEffect(() => {
     if (!canUseGasless) {
@@ -379,7 +379,7 @@ export default function ReviewBox({
                       Address is not a multisig wallet
                     </Text>
                     <Text>
-                      {!isGnosisSafe ? (
+                      {precheckData ? (
                         <Icon name="checkmark" color="bull" size={'13px'} />
                       ) : (
                         <Icon name="close" color="bear" size={'13px'} />

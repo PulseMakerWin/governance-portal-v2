@@ -17,11 +17,13 @@ import { VoteDelegate } from 'types/ethers-contracts';
 import { config } from 'lib/config';
 
 type DelegatedByUserResponse = {
-  data: {
-    directDelegationAmount: BigNumber | undefined;
-    sealDelegationAmount: BigNumber | undefined;
-    totalDelegationAmount: BigNumber | undefined;
-  } | undefined;
+  data:
+    | {
+        directDelegationAmount: BigNumber | undefined;
+        sealDelegationAmount: BigNumber | undefined;
+        totalDelegationAmount: BigNumber | undefined;
+      }
+    | undefined;
   loading: boolean;
   error?: Error;
   mutate: () => void;
@@ -43,7 +45,7 @@ export const useMkrDelegatedByUser = (
   }
   const network = chainIdToNetworkName(chainId);
 
-  const fetchFromChain = async(userAddress: string | undefined, voteDelegateAddress: string | undefined) => {
+  const fetchFromChain = async (userAddress: string | undefined, voteDelegateAddress: string | undefined) => {
     const contract = getEthersContracts<VoteDelegate>(
       voteDelegateAddress as string,
       abi,
@@ -52,7 +54,7 @@ export const useMkrDelegatedByUser = (
       account,
       true
     );
-  
+
     const directDelegated = await contract.stake(userAddress as string);
 
     return {

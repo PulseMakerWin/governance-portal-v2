@@ -13,11 +13,7 @@ import tenderlyTestnetData from '../../../tenderlyTestnetData.json';
 
 export const NetworkContextName = 'NETWORK';
 
-import {
-  MAINNET_SPOCK_URL,
-  STAGING_MAINNET_SPOCK_URL,
-  TENDERLY_SPOCK_URL
-} from 'modules/gql/gql.constants';
+import { MAINNET_SPOCK_URL, STAGING_MAINNET_SPOCK_URL, TENDERLY_SPOCK_URL } from 'modules/gql/gql.constants';
 
 export enum SupportedConnectors {
   METAMASK = 'MetaMask',
@@ -61,8 +57,8 @@ export const CHAIN_INFO: ChainInfo = {
     spockUrl:
       process.env.NEXT_PUBLIC_VERCEL_ENV === 'development' ? STAGING_MAINNET_SPOCK_URL : MAINNET_SPOCK_URL,
     rpcs: {
-      [NodeProviders.INFURA]: `https://rpc.v4.testnet.pulsechain.com`,
-      [NodeProviders.ALCHEMY]: `https://rpc.v4.testnet.pulsechain.com`
+      [NodeProviders.INFURA]: 'https://rpc.v4.testnet.pulsechain.com',
+      [NodeProviders.ALCHEMY]: 'https://rpc.v4.testnet.pulsechain.com'
     },
     showInProduction: true
   },
@@ -102,7 +98,10 @@ export const CHAIN_INFO: ChainInfo = {
     defaultRpc: NodeProviders.TENDERLY,
     spockUrl: TENDERLY_SPOCK_URL,
     rpcs: {
-      [NodeProviders.TENDERLY]: config.USE_MOCK_WALLET && TENDERLY_RPC_URL ? TENDERLY_RPC_URL : `https://virtual.mainnet.rpc.tenderly.co/${config.TENDERLY_RPC_KEY}`
+      [NodeProviders.TENDERLY]:
+        config.USE_MOCK_WALLET && TENDERLY_RPC_URL
+          ? TENDERLY_RPC_URL
+          : `https://virtual.mainnet.rpc.tenderly.co/${config.TENDERLY_RPC_KEY}`
     },
     showInProduction: false
   }

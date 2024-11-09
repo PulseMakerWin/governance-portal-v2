@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "jsxImportSource": "theme-ui",
     "strictNullChecks": true,
-    "types": ["jest"],
+    "types": ["jest", "node"],
     "baseUrl": "./",
     "paths": {
       "lib/*": ["lib/*"],

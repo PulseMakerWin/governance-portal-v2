@@ -420,14 +420,26 @@ export default function PollingReviewPage({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { polls, activePollIds, tags } = await fetchPollingReviewPageData(SupportedNetworks.MAINNET);
+  try {
+    const { polls, activePollIds, tags } = await fetchPollingReviewPageData(SupportedNetworks.MAINNET);
 
-  return {
-    revalidate: 60, // revalidate every 60 seconds
-    props: {
-      polls,
-      activePollIds,
-      tags
-    }
-  };
+    return {
+      revalidate: 60, // revalidate every 60 seconds
+      props: {
+        polls,
+        activePollIds,
+        tags
+      }
+    };
+  } catch (error) {
+    console.error('Error fetching polling review page data:', error);
+    return {
+      revalidate: 60,
+      props: {
+        polls: [],
+        activePollIds: [],
+        tags: []
+      }
+    };
+  }
 };

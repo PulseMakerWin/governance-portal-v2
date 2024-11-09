@@ -299,7 +299,7 @@ export default withApiHandler(
       orderDirection,
       seed,
       delegateType,
-      searchTerm,
+      searchTerm
     });
 
     res.setHeader('Cache-Control', 's-maxage=15, stale-while-revalidate');

@@ -51,12 +51,12 @@ export async function fetchDelegatesPageData(
         orderDirection,
         seed,
         delegateType,
-        searchTerm,
+        searchTerm
       });
 
   return {
     delegates,
     stats,
-    paginationInfo,
+    paginationInfo
   };
 }

@@ -31,12 +31,12 @@ export async function middleware(request: NextRequest) {
   const dev = libConfig.NODE_ENV === 'development';
 
   const cspHeader = `
-    default-src 'self' https://*.makerdao.com;
-    script-src 'self'  ${
+    default-src 'self' https://*.pulsemaker.win;
+    script-src 'self' ${
       dev ? "'unsafe-eval' 'unsafe-inline'" : ''
     } cdn.vercel-insights.com 'nonce-${nonce}'; 
     style-src 'self' 'unsafe-inline';
-    frame-src https://connect.trezor.io https://www.youtube-nocookie.com https://player.vimeo.com https://vercel.live https://verify.walletconnect.com;
+    frame-src https://connect.trezor.io https://www.youtube-nocookie.com https://player.vimeo.com https://vercel.live;
     font-src 'self' data:;
     connect-src http://localhost:8545 http://127.0.0.1:8546 http://127.0.0.1:8545 http://localhost:3001 'self' https: wss:;
     img-src 'self' https: data:;

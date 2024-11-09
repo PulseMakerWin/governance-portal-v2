@@ -11,13 +11,14 @@ import logger from 'lib/logger';
 import { SupportedNetworks } from '../constants/networks';
 import { chainIdToNetworkName } from '../helpers/chain';
 
-export function useWeb3(): Web3ContextType & { network?: SupportedNetworks } {
+export function useWeb3(): Web3ContextType & { network: SupportedNetworks } {
   const context = useWeb3React();
 
-  let network;
+  let network: SupportedNetworks = SupportedNetworks.MAINNET;
+
   try {
     if (context.chainId != null) {
-      network = chainIdToNetworkName(context.chainId);
+      network = chainIdToNetworkName(context.chainId) || SupportedNetworks.MAINNET;
     }
   } catch (err) {
     logger.warn('Connected to an unsupported network');
@@ -25,6 +26,6 @@ export function useWeb3(): Web3ContextType & { network?: SupportedNetworks } {
 
   return {
     ...context,
-    network,
+    network
   };
 }

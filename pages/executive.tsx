@@ -49,6 +49,7 @@ import SkeletonThemed from 'modules/app/components/SkeletonThemed';
 import { SupportedNetworks } from 'modules/web3/constants/networks';
 import { ExecutivePageData, fetchExecutivePageData } from 'modules/executive/api/fetchExecutivePageData';
 import { InternalLink } from 'modules/app/components/InternalLink';
+import GlobalStyles from '../styles/GlobalStyles';
 
 const MigrationBadge = ({ children, py = [2, 3] }) => (
   <Badge
@@ -495,13 +496,24 @@ export default function ExecutiveOverviewPage({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { proposals } = await fetchExecutivePageData(SupportedNetworks.MAINNET);
+  try {
+    const { proposals } = await fetchExecutivePageData(SupportedNetworks.MAINNET);
 
-  return {
-    revalidate: 60 * 30, // allow revalidation every half an hour in seconds
-    props: {
-      proposals,
-      staticPageGenerationTimeout: 180
-    }
-  };
+    return {
+      revalidate: 60 * 30, // allow revalidation every half an hour in seconds
+      props: {
+        proposals,
+        staticPageGenerationTimeout: 180
+      }
+    };
+  } catch (error) {
+    console.error('Error fetching executive page data:', error);
+    return {
+      revalidate: 60 * 30,
+      props: {
+        proposals: [],
+        staticPageGenerationTimeout: 180
+      }
+    };
+  }
 };

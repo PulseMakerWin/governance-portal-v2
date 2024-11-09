@@ -55,7 +55,7 @@ export default function ConnectWalletButton({ onClickConnect, address, pending }
               <AddressIcon address={address} width={22} />
             </Box>
             <Text sx={{ fontFamily: 'body' }} data-testid="connected-address">
-              <Address address={''} />
+              <Address address={address} /* Removed address for videos*/ />
             </Text>
           </Flex>
         )

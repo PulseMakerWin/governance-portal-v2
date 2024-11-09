@@ -39,7 +39,7 @@ const [useDelegatesFiltersStore] = create<StoreDelegates>((set, get) => ({
     showShadow: true,
     showAligned: true,
     showExpired: false,
-    name: null,
+    name: null
   },
   sort: DelegateOrderByEnum.RANDOM,
   sortDirection: OrderDirectionEnum.DESC,
@@ -105,7 +105,7 @@ const [useDelegatesFiltersStore] = create<StoreDelegates>((set, get) => ({
         creationDate: null,
         showShadow: true,
         showAligned: true,
-        showExpired: false,
+        showExpired: false
       },
       sort: DelegateOrderByEnum.RANDOM,
       sortDirection: OrderDirectionEnum.DESC

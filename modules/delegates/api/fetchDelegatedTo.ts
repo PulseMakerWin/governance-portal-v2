@@ -16,7 +16,7 @@ import { mkrDelegatedToV2 } from 'modules/gql/queries/mkrDelegatedTo';
 import { SupportedNetworks } from 'modules/web3/constants/networks';
 import { networkNameToChainId } from 'modules/web3/helpers/chain';
 import { isAboutToExpireCheck, isExpiredCheck } from 'modules/migration/helpers/expirationChecks';
-import { DelegationHistoryWithExpirationDate, MKRDelegatedToDAIResponse } from '../types';
+import { DelegationHistoryWithExpirationDate, MKRDelegatedToResponse } from '../types';
 import { getNewOwnerFromPrevious } from 'modules/migration/delegateAddressLinks';
 
 export async function fetchDelegatedTo(
@@ -36,7 +36,7 @@ export async function fetchDelegatedTo(
     const delegatesData = await gqlRequest<Query>({ chainId, query: allDelegates });
     const delegates = delegatesData.allDelegates.nodes;
 
-    const res: MKRDelegatedToDAIResponse[] = data.mkrDelegatedToV2.nodes;
+    const res: MKRDelegatedToResponse[] = data.mkrDelegatedToV2.nodes;
     const delegatedTo = res.reduce((acc, { delegateContractAddress, lockAmount, blockTimestamp, hash }) => {
       const existing = acc.find(({ address }) => address === delegateContractAddress) as
         | DelegationHistoryWithExpirationDate

@@ -19,15 +19,10 @@ export function filterDelegates(
   filteredDelegateEntries: AllDelegatesEntryWithName[];
 } {
   const alignedDelegatesAddresses = filterDelegateAddresses(allDelegatesWithNames, null);
-  const filteredDelegateAddresses = filterDelegateAddresses(
-    allDelegatesWithNames,
-    searchTerm,
-    type
-  );
-  const filteredDelegateEntries =
-    !searchTerm
-      ? allDelegatesWithNames
-      : allDelegatesWithNames.filter(delegate => filteredDelegateAddresses.includes(delegate.voteDelegate));
+  const filteredDelegateAddresses = filterDelegateAddresses(allDelegatesWithNames, searchTerm, type);
+  const filteredDelegateEntries = !searchTerm
+    ? allDelegatesWithNames
+    : allDelegatesWithNames.filter(delegate => filteredDelegateAddresses.includes(delegate.voteDelegate));
 
   return { alignedDelegatesAddresses, filteredDelegateAddresses, filteredDelegateEntries };
 }
@@ -41,12 +36,11 @@ export function filterDelegateAddresses(
     type === DelegateTypeEnum.ALL ? true : delegate.delegateType === (type || DelegateTypeEnum.ALIGNED)
   );
 
-  const filteredDelegates = statusFiltered.filter(
-    delegate =>
-      (searchTerm
-        ? delegate.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          delegate.voteDelegate.toLowerCase().includes(searchTerm.toLowerCase())
-        : true)
+  const filteredDelegates = statusFiltered.filter(delegate =>
+    searchTerm
+      ? delegate.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        delegate.voteDelegate.toLowerCase().includes(searchTerm.toLowerCase())
+      : true
   );
 
   return filteredDelegates.map(delegate => delegate.voteDelegate.toLowerCase());
