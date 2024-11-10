@@ -1,6 +1,17 @@
 branch-defaults:
   master:
-    environment: null
-    group_suffix: null
+    environment: governance-portal-v2
 global:
+  application_name: governance-portal-v2
+  branch: null
+  default_ec2_keyname: PulseMakerWin
+  default_platform: Node.js 20 running on 64bit Amazon Linux 2023
+  default_region: us-east-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
   profile: eb-cli
+  repository: null
+  sc: git
+  workspace_type: Application

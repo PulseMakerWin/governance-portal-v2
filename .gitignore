@@ -52,3 +52,8 @@ package-lock.json
 
 #tenderly fork data
 tenderlyTestnetData.json
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

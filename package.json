@@ -6,7 +6,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "if [ \"$SKIP_HUSKY\" != \"true\" ]; then husky install; fi",
     "dev": "next",
     "dev:mock": "NEXT_PUBLIC_USE_MOCK_WALLET=true next",
     "dev-https": "node server.js",
@@ -26,6 +26,8 @@
   "dependencies": {
     "@ensdomains/ens-avatar": "^0.1.6",
     "@ethersproject/experimental": "^5.7.0",
+	"@dethcrypto/eth-sdk": "^0.3.3",
+    "@dethcrypto/eth-sdk-client": "^0.1.6",
     "@makerdao/dai-ui-icons": "^0.0.39",
     "@makerdao/dai-ui-icons-branding": "^0.0.39",
     "@makerdao/i18n-helper": "^0.1.8",
@@ -55,6 +57,7 @@
     "date-fns-tz": "^1.1.6",
     "defender-relay-client": "^1.23.0",
     "ethers": "^5.7.0",
+	"eth-rpc-errors": "^3.0.0",
     "graphql-request": "^4.0.0",
     "gray-matter": "^4.0.2",
     "ioredis": "^5.0.6",
