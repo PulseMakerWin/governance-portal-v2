@@ -26,8 +26,8 @@ export enum SupportedConnectors {
 
 export enum SupportedNetworks {
   MAINNET = 'mainnet',
-  ARBITRUMTESTNET = 'sepolia',
   ARBITRUM = 'arbitrum',
+  ARBITRUMTESTNET = 'sepolia',
   TENDERLY = 'tenderly'
 }
 
@@ -47,7 +47,8 @@ const { TENDERLY_RPC_URL } = tenderlyTestnetData;
 //todo: change name to SUPPORTED_CHAIN_INFO
 export const CHAIN_INFO: ChainInfo = {
   [SupportedChainId.MAINNET]: {
-    blockExplorerUrl: 'scan.v4.testnet.pulsechain.com/#',
+    blockExplorerUrl:
+      'scan.mypinata.cloud/ipfs/bafybeih3olry3is4e4lzm7rus5l3h6zrphcal5a7ayfkhzm5oivjro2cp4/#',
     blockExplorerName: 'Mainnet',
     chainId: SupportedChainId.MAINNET,
     label: 'Mainnet',
@@ -57,8 +58,8 @@ export const CHAIN_INFO: ChainInfo = {
     spockUrl:
       process.env.NEXT_PUBLIC_VERCEL_ENV === 'development' ? STAGING_MAINNET_SPOCK_URL : MAINNET_SPOCK_URL,
     rpcs: {
-      [NodeProviders.INFURA]: 'https://rpc.v4.testnet.pulsechain.com',
-      [NodeProviders.ALCHEMY]: 'https://rpc.v4.testnet.pulsechain.com'
+      [NodeProviders.INFURA]: 'https://rpc.pulsechain.com',
+      [NodeProviders.ALCHEMY]: 'https://rpc.pulsechain.com'
     },
     showInProduction: true
   },
@@ -134,7 +135,7 @@ export const SIMULATE_TX_FROM = '0x5cab1e5286529370880776461c53a0e47d74fb63'; //
 export const DECODED_SPELL_ENDPOINT = (hash: string): string =>
   `${url}/api/v1/transactions/${hash}/diffs/decoded`;
 
-export const AVG_BLOCKS_PER_DAY = 6500;
+export const AVG_BLOCKS_PER_DAY = 8640;
 
-export const GASNOW_ENDPOINT = 'https://beaconcha.in/api/v1/execution/gasnow';
-export const GASNOW_URL = 'https://www.etherchain.org/tools/gasnow';
+export const GASNOW_ENDPOINT = 'https://rpc-pulsechain.g4mm4.io';
+export const GASNOW_URL = 'https://www.g4mm4.io/';

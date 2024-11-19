@@ -72,6 +72,9 @@ export default withApiHandler(
 
       res.status(200).json({ success: 'Added Successfully' });
     } catch (err) {
+      // Log the error details
+      console.error('Error processing request:', err);
+
       throw new ApiError(`POST /api/comments/polling/add: ${err}`, 500, 'Error adding poll comments');
     }
   },

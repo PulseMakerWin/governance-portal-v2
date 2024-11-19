@@ -21,19 +21,42 @@ export async function getCommentTransactionStatus(
   const txHash = comment.txHash;
   const cacheKey = `transaction-comment-${txHash}`;
 
+  console.log('Verifying transaction:', {
+    network,
+    txHash,
+    providerNetwork: await provider.getNetwork().catch(e => 'Failed to get network'),
+    commentAddress: comment.voterAddress
+  });
+
   const cachedResponse = await cacheGet(cacheKey, network);
   if (cachedResponse) {
     return JSON.parse(cachedResponse);
   }
 
   try {
-    const transaction = txHash ? await provider.getTransaction(txHash as string) : null;
-    const isValid = !!transaction;
+    if (!txHash) {
+      return { completed: false, isValid: false };
+    }
+
+    const transaction = await provider.getTransaction(txHash).catch(e => {
+      logger.error('Error fetching transaction:', e);
+      return null;
+    });
+
+    console.log('Transaction details:', {
+      found: !!transaction,
+      confirmations: transaction?.confirmations,
+      from: transaction?.from,
+      to: transaction?.to
+    });
+
+    const isValid = !!transaction && transaction.from.toLowerCase() === comment.voterAddress.toLowerCase();
 
     const completed = transaction && transaction.confirmations > 10;
-    const response = { completed: !!completed, isValid: !!isValid };
+    const response = { completed: !!completed, isValid };
 
-    cacheSet(cacheKey, JSON.stringify(response), network, FIVE_MINUTES_IN_MS);
+    await cacheSet(cacheKey, JSON.stringify(response), network, FIVE_MINUTES_IN_MS);
+
     return response;
   } catch (e) {
     logger.error(`Error fetching comment transcation: ${txHash}`);

@@ -49,7 +49,6 @@ import SkeletonThemed from 'modules/app/components/SkeletonThemed';
 import { SupportedNetworks } from 'modules/web3/constants/networks';
 import { ExecutivePageData, fetchExecutivePageData } from 'modules/executive/api/fetchExecutivePageData';
 import { InternalLink } from 'modules/app/components/InternalLink';
-import GlobalStyles from '../styles/GlobalStyles';
 
 const MigrationBadge = ({ children, py = [2, 3] }) => (
   <Badge

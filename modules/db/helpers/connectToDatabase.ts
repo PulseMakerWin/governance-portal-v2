@@ -15,7 +15,10 @@ if (!process.env.MONGODB_URI) {
 }
 
 // In production mode, it's best to not use a global variable.
-const client = new MongoClient(process.env.MONGODB_URI, {});
+const client = new MongoClient(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 const clientPromise = (): Promise<any> => {
   return client.connect();

@@ -29,7 +29,7 @@ export type PollsQueryParams = {
 
 export async function fetchPollingPageData(
   network: SupportedNetworks,
-  useApi = true,
+  useApi = false,
   queryParams?: PollsQueryParams
 ): Promise<PollingPageProps> {
   const pageSize = 30;
@@ -76,7 +76,7 @@ export async function fetchPollingPageData(
 
 export async function fetchPollingReviewPageData(
   network: SupportedNetworks,
-  useApi = true
+  useApi = false
 ): Promise<PollingReviewPageProps> {
   const queryParams = {
     network,

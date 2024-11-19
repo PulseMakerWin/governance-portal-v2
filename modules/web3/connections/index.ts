@@ -34,7 +34,7 @@ const [web3Network, web3NetworkHooks] = initializeConnector<Network>(
         [SupportedChainId.MAINNET]: getRPCFromChainID(SupportedChainId.MAINNET),
         [SupportedChainId.TENDERLY]: getRPCFromChainID(SupportedChainId.TENDERLY)
       },
-      defaultChainId: 943
+      defaultChainId: 369
     })
 );
 export const networkConnection: Connection = {

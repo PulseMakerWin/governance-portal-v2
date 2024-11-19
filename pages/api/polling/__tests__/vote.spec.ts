@@ -10,7 +10,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
  * @jest-environment node
  */
 import { createMocks, RequestMethod } from 'node-mocks-http';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse as NextApiResponseBase } from 'next';
 import voteAPIHandler, { API_VOTE_ERRORS } from '../vote';
 import { SupportedNetworks } from 'modules/web3/constants/networks';
 import { getArbitrumPollingContractRelayProvider } from 'modules/polling/api/getArbitrumPollingContractRelayProvider';
@@ -25,6 +25,11 @@ import { postRequestToDiscord } from 'modules/app/api/postRequestToDiscord';
 import { getDelegateContractAddress } from 'modules/delegates/helpers/getDelegateContractAddress';
 import { getVoteProxyAddresses } from 'modules/app/helpers/getVoteProxyAddresses';
 import { verifyTypedSignature } from 'modules/web3/helpers/verifyTypedSignature';
+
+// Extend the NextApiResponse type to include _getJSONData
+interface NextApiResponse extends NextApiResponseBase {
+  _getJSONData: () => any;
+}
 
 jest.mock('modules/polling/api/getArbitrumPollingContractRelayProvider');
 jest.mock('modules/mkr/helpers/getMKRVotingWeight');
