@@ -20,17 +20,20 @@ export async function getPollComments(
   pollId: number,
   network: SupportedNetworks
 ): Promise<PollCommentsAPIResponseItem[]> {
+  console.log(`Connecting to database for pollId: ${pollId}, network: ${network}`);
 
   const { db, client } = await connectToDatabase;
   invariant(await client.isConnected(), 'mongo client failed to connect');
+  console.log('Database connection successful');
 
   const collection = db.collection('comments');
+  console.log('Fetching comments from database');
 
-  // decending sort
   const commentsFromDB: PollCommentFromDB[] = await collection
     .find({ pollId, network, commentType: 'poll' })
     .sort({ date: -1 })
     .toArray();
+  console.log(`Fetched ${commentsFromDB.length} comments from database`);
 
   const comments = await Promise.all(
     commentsFromDB.map(async comment => {
@@ -43,9 +46,16 @@ export async function getPollComments(
   );
 
   const uniqueComments = uniqBy(comments, 'voterAddress');
+  console.log(`Filtered to ${uniqueComments.length} unique comments`);
 
   const promises = uniqueComments.map(async (comment: PollComment) => {
     try {
+      console.log(`Verifying transaction for comment by ${comment.voterAddress}`, {
+        txHash: comment.txHash,
+        network,
+        gaslessNetwork: comment.gaslessNetwork
+      });
+
       const provider = comment.gaslessNetwork ? getGaslessProvider(network) : getProvider(network);
 
       // Verify provider connection
@@ -54,7 +64,16 @@ export async function getPollComments(
         return null;
       });
 
+      console.log('Provider network:', networkInfo);
+
       const { completed, isValid } = await getCommentTransactionStatus(network, provider, comment);
+
+      console.log('Transaction verification result:', {
+        address: comment.voterAddress,
+        completed,
+        isValid
+      });
+
       const addressInfo = await getAddressInfo(comment.voterAddress, network);
 
       return {
@@ -81,6 +100,7 @@ export async function getPollComments(
   });
 
   const response = await Promise.all(promises);
+  console.log(`Returning ${response.filter(i => i.isValid).length} valid comments`);
 
   return response.filter(i => i.isValid) as PollCommentsAPIResponseItem[];
 }

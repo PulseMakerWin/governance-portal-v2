@@ -119,7 +119,7 @@ export const DelegateModal = ({
                     ) : (
                       <InputDelegateMkr
                         title={title}
-                        description="Input the amount of MKR to deposit into the delegate contract."
+                        description="Input the amount of pMKR to deposit into the delegate contract."
                         onChange={setMkrToDeposit}
                         balance={mkrBalance}
                         buttonLabel="Delegate MKR"
@@ -139,7 +139,7 @@ export const DelegateModal = ({
                       title={'Approve Delegate Contract'}
                       buttonLabel={'Approve Delegate Contract'}
                       description={
-                        'Approve the transfer of MKR tokens to the delegate contract to deposit your MKR.'
+                        'Approve the transfer of pMKR tokens to the delegate contract to deposit your pMKR.'
                       }
                     />
                   )}

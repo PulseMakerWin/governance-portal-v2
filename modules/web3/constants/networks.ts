@@ -56,7 +56,7 @@ export const CHAIN_INFO: ChainInfo = {
     network: SupportedNetworks.MAINNET,
     defaultRpc: NodeProviders.ALCHEMY,
     spockUrl:
-      process.env.NEXT_PUBLIC_VERCEL_ENV === 'development' ? STAGING_MAINNET_SPOCK_URL : MAINNET_SPOCK_URL,
+      process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' ? STAGING_MAINNET_SPOCK_URL : MAINNET_SPOCK_URL,
     rpcs: {
       [NodeProviders.INFURA]: 'https://rpc.pulsechain.com',
       [NodeProviders.ALCHEMY]: 'https://rpc.pulsechain.com'

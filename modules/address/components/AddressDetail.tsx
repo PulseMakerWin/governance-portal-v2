@@ -82,7 +82,7 @@ export function AddressDetail({ addressInfo }: { addressInfo: AddressApiResponse
             fontWeight: 'semiBold'
           }}
         >
-          MKR Delegated by Address
+          pMKR Delegated by Address
         </Text>
         {!delegatedToData && (
           <Box mb={3}>
@@ -97,7 +97,7 @@ export function AddressDetail({ addressInfo }: { addressInfo: AddressApiResponse
         )}
         {delegatedToData && delegatedToData.delegatedTo.length === 0 && (
           <Box mb={3}>
-            <Text>No MKR delegated</Text>
+            <Text>No pMKR delegated</Text>
           </Box>
         )}
       </Box>

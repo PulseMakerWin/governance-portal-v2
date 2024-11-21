@@ -291,6 +291,14 @@ const Delegates = ({
           )}
         </Flex>
 
+        <Box sx={{ textAlign: 'center', my: 4 }}>
+          <Card sx={{ p: 3, bg: 'muted' }}>
+            <Text as="p" sx={{ fontWeight: 'bold', color: 'primary' }}>
+              Delegation is on hold
+            </Text>
+          </Card>
+        </Box>
+
         <SidebarLayout>
           <Box>
             <Stack gap={3}>

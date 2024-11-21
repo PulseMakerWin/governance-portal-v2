@@ -11,7 +11,7 @@ import { Text } from 'theme-ui';
 
 export type InfoPoint = {
   number: string;
-  title: string;
+  title: React.ReactNode;
   titleFirst: string;
   titleSecond: string;
 
@@ -31,14 +31,14 @@ export const infoPoints: InfoPoint[] = [
     titleSecond: 'off-chain governance',
     links: [
       {
-        linkHref: 'https://manual.makerdao.com/governance/voting-in-makerdao/off-chain-governance',
+        linkHref: 'https://t.me/PulseChainMKR',
         linkTitle: 'Learn more about off-chain governance'
       }
     ],
 
     color: '#1AAB9B',
     description:
-      "Off-chain governance refers to processes for making decisions that don't require on-chain voting and gathering feedback prior to on-chain voting. Off-chain governance happens on the Maker Governance Forum, where the community meets to propose and discuss new proposals. Anyone can participate in off-chain governance."
+      "Off-chain governance refers to processes for making decisions that don't require on-chain voting and gathering feedback prior to on-chain voting. At this point, off-chain governance is happening in the PulseChainMKR channel. Anyone can participate in off-chain governance."
   },
   {
     number: '02',
@@ -54,7 +54,7 @@ export const infoPoints: InfoPoint[] = [
     ],
 
     description:
-      'On-chain governance refers to Governance Polls and Executive Votes, which are formalized governance proposals that require on-chain voting. Anyone who owns MKR tokens can participate in these votes using their wallet.'
+      'On-chain governance refers to Governance Polls and Executive Votes, which are formalized governance proposals that require on-chain voting. Anyone who owns pMKR tokens can participate in these votes using their wallet.'
   },
   {
     number: '03',
@@ -65,12 +65,17 @@ export const infoPoints: InfoPoint[] = [
     links: [],
 
     description:
-      'Connect a web3 wallet (eg. MetaMask, WalletConnect) that holds your MKR tokens and start participating! Users that hold many MKR tokens or use their wallet for other uses besides Maker governance might want to consider more secure methods of setting up a voting wallet, such as using a hardware wallet or setting up a vote proxy.'
+      'Connect a web3 wallet (eg. MetaMask) that holds your pMKR tokens and start participating! Users that hold many pMKR tokens or use their wallet for other uses besides PulseMaker governance might want to consider more secure methods of setting up a voting wallet, such as using a hardware wallet or setting up a vote proxy.'
   },
   {
     number: '04',
     color: '#9A4BFF',
-    title: 'Delegate your voting power',
+    title: (
+      <>
+        <span style={{ textDecoration: 'line-through' }}>Delegate your voting power</span>{' '}
+        <span style={{ color: 'gray' }}>(On-hold)</span>
+      </>
+    ),
     titleFirst: 'Option 1:',
     titleSecond: 'Delegate your voting power',
     links: [

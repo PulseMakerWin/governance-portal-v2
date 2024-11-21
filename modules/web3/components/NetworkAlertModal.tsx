@@ -61,8 +61,7 @@ export const NetworkAlertModal = ({
             </Flex>
 
             <Text sx={{ mt: 3 }}>
-              Your wallet is connected to an unsupported network, please switch it to{' '}
-              {SupportedNetworks.MAINNET} to continue.
+              Your wallet is connected to an unsupported network, please switch it to PulseChain to continue.
             </Text>
             {/* <Button onClick={() => handleSwitchNetwork(SupportedNetworks.MAINNET)}>Switch to mainnet</Button>*/}
           </Flex>

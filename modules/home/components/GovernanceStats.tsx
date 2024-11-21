@@ -22,7 +22,7 @@ type Props = {
 export function GovernanceStats({ pollStats, stats, mkrOnHat, mkrInChief }: Props): JSX.Element {
   const infoUnits = [
     {
-      title: 'MKR on Hat',
+      title: 'pMKR on Hat',
       value: mkrOnHat ? `${mkrOnHat} MKR` : <Skeleton />
     },
     {
@@ -38,12 +38,12 @@ export function GovernanceStats({ pollStats, stats, mkrOnHat, mkrInChief }: Prop
       value: stats ? stats.shadow.toString() : <Skeleton />
     },
     {
-      title: 'MKR Delegated',
-      value: stats ? `${new BigNumberJS(stats.totalMKRDelegated).toFormat(0)} MKR` : <Skeleton />
+      title: 'pMKR Delegated',
+      value: stats ? `${new BigNumberJS(stats.totalMKRDelegated).toFormat(0)} pMKR` : <Skeleton />
     },
     {
-      title: 'MKR in Chief',
-      value: mkrInChief ? `${mkrInChief} MKR` : <Skeleton />
+      title: 'pMKR in Chief',
+      value: mkrInChief ? `${mkrInChief} pMKR` : <Skeleton />
     }
   ];
 
@@ -51,7 +51,7 @@ export function GovernanceStats({ pollStats, stats, mkrOnHat, mkrInChief }: Prop
     <Stats
       title="Governance Stats"
       infoUnits={infoUnits}
-      viewMoreUrl="https://governance-metrics-dashboard.vercel.app/"
+      viewMoreUrl="" //Neeed to get additional stats or remove
     />
   );
 }

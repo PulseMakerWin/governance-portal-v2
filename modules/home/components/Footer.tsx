@@ -62,7 +62,7 @@ export default function Footer({ locale = 'en' }: { locale?: string }): React.Re
       header: t('Participate'),
       list: [
         {
-          url: 'https://forum.makerdao.com/',
+          url: 'https://t.me/PulseChainMKR',
           title: t('Community')
         }
       ]
@@ -71,20 +71,16 @@ export default function Footer({ locale = 'en' }: { locale?: string }): React.Re
       header: t('Ecosystem'),
       list: [
         {
-          url: 'https://sky.money/',
-          title: t('sky.money')
+          url: 'https://gorealdefi.com/',
+          title: t('PulseChain Apps')
         },
         {
-          url: 'https://web3-growth.notion.site/Sky-Brand-Kit-ec871fa39f9d41bf9cc4446e7d1f6997?p=ebe95d12947642b6bf69cbac9d09c972&pm=c',
-          title: t('Brand Guidelines')
+          url: 'https://gopulse.com/',
+          title: t('GoPulse')
         },
         {
-          url: 'https://www.notion.so/Sky-Brand-Kit-ec871fa39f9d41bf9cc4446e7d1f6997?pvs=4',
-          title: t('Media Assets')
-        },
-        {
-          url: 'https://sky.money/faq',
-          title: t('FAQs')
+          url: 'https://start.me/p/gGQ09M/plstart-me',
+          title: t('Pulsechain Eco')
         }
       ]
     },
@@ -92,7 +88,7 @@ export default function Footer({ locale = 'en' }: { locale?: string }): React.Re
       header: t('Build'),
       list: [
         {
-          url: 'https://developers.sky.money/',
+          url: 'https://github.com/PulseMakerWin/governance-portal-v2',
           title: t('Developer Documentation')
         }
       ]
@@ -101,8 +97,9 @@ export default function Footer({ locale = 'en' }: { locale?: string }): React.Re
 
   const logos = {
     sky: [
-      { title: 'Discord', url: 'https://discord.gg/skyecosystem', icon: 'discord' },
-      { title: 'Twitter', url: 'https://x.com/SkyEcosystem', icon: 'twitter' }
+      { title: 'Telegram', url: 'https://t.me/PulseChainMKR', icon: 'telegram' },
+      { title: 'Twitter', url: 'https://x.com/PulseMakerWin', icon: 'twitter' },
+      { title: 'Discord', url: 'https://discord.gg/Sfyfuck2', icon: 'discord' }
     ]
   };
 
@@ -143,7 +140,7 @@ export default function Footer({ locale = 'en' }: { locale?: string }): React.Re
         }}
       >
         <ContactSection
-          heading="Official Community Channels"
+          heading="PulseChain Community Channels"
           icon={renderedMode === 'dark' ? 'sky_white' : 'sky'}
           logos={logos.sky}
         />

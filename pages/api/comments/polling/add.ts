@@ -19,6 +19,9 @@ import { ApiError } from 'modules/app/api/ApiError';
 export default withApiHandler(
   async (req: NextApiRequest, res: NextApiResponse) => {
     try {
+      // Log the incoming request data
+      console.log('Received request:', req.body);
+
       const body = req.body as PollsCommentsRequestBody;
 
       if (!req.query.network || !body.txHash || !body.comments || !body.voterAddress || !body.hotAddress) {

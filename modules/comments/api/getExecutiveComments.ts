@@ -21,7 +21,6 @@ import { networkNameToChainId } from 'modules/web3/helpers/chain';
 import { getRPCFromChainID } from 'modules/web3/helpers/getRPC';
 import { ethers } from 'ethers';
 import { getCommentTransactionStatus } from './getCommentTransaction';
-
 export async function getExecutiveComments(
   spellAddress: string,
   network: SupportedNetworks
@@ -32,23 +31,15 @@ export async function getExecutiveComments(
 
   const collection = db.collection('comments');
   // decending sort
-  console.log('Fetching comments from DB with query:', { spellAddress, network, commentType: 'executive' });
-
   const commentsFromDB: ExecutiveCommentFromDB[] = await collection
-    .find({
-      spellAddress: new RegExp(`^${spellAddress}$`, 'i'), // Case-insensitive regex
-      network,
-      commentType: 'executive'
-    })
+    .find({ spellAddress, network, commentType: 'executive' })
     .sort({ date: -1 })
     .toArray();
-
-  console.log(`Number of comments fetched: ${commentsFromDB.length}`);
-  console.log('Comments fetched from DB:', commentsFromDB);
 
   const comments: ExecutiveComment[] = await Promise.all(
     commentsFromDB.map(async comment => {
       const { _id, voterAddress, ...rest } = comment;
+
       const commentBody = await markdownToHtml(comment.comment, true);
       return {
         ...rest,
@@ -58,17 +49,14 @@ export async function getExecutiveComments(
     })
   );
 
+  // only return the latest comment from each address
   const uniqueComments = uniqBy(comments, 'voterAddress');
-  console.log(`Number of unique comments: ${uniqueComments.length}`);
-
   const rpcUrl = getRPCFromChainID(networkNameToChainId(network));
   const provider = await new ethers.providers.JsonRpcProvider(rpcUrl);
 
   const promises = uniqueComments.map(async (comment: ExecutiveComment) => {
     // verify tx ownership
-    console.log(`Processing comment with voterAddress: ${comment.voterAddress}`);
     const { completed, isValid } = await getCommentTransactionStatus(network, provider, comment);
-    console.log(`Transaction status for voterAddress ${comment.voterAddress}:`, { completed, isValid });
 
     return {
       comment,
@@ -79,11 +67,6 @@ export async function getExecutiveComments(
   });
 
   const response = await Promise.all(promises);
-  console.log('Final response before filtering:', response);
-
-  const validComments = response.filter(i => i.isValid);
-  console.log(`Number of valid comments: ${validComments.length}`);
-  console.log('Valid comments:', validComments);
 
   return response.filter(i => i.isValid) as ExecutiveCommentsAPIResponseItem[];
 }

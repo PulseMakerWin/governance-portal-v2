@@ -26,7 +26,7 @@ export const SUPPORTED_WALLETS: {
   [SupportedConnectors.METAMASK]: {
     name: SupportedConnectors.METAMASK,
     connectionType: ConnectionType.METAMASK,
-    deeplinkUri: 'https://metamask.app.link/dapp/vote.makerdao.com/'
+    deeplinkUri: 'https://metamask.app.link/dapp/pulsemaker.win/'
   }
   /*[SupportedConnectors.WALLET_CONNECT]: {
     name: SupportedConnectors.WALLET_CONNECT,

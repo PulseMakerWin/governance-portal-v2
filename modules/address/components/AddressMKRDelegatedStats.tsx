@@ -36,7 +36,7 @@ export function AddressMKRDelegatedStats({
     >
       <StatBox
         value={votingWeight ? formatValue(votingWeight.total, undefined, undefined, true) : '0'}
-        label={'Total MKR Balance'}
+        label={'Total pMKR Balance'}
         tooltip={
           <Tooltip label={getDescription({ votingWeight, isDelegate: false })}>
             <Box>
@@ -51,7 +51,7 @@ export function AddressMKRDelegatedStats({
           textAlign: 'right'
         }}
         value={totalMKRDelegated ? formatValue(parseUnits(totalMKRDelegated.toString())) : '0'}
-        label={'Total MKR Delegated'}
+        label={'Total pMKR Delegated'}
       />
     </Flex>
   );

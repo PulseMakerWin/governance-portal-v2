@@ -7,7 +7,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 */
 
 export async function fetchJson(url: string, init?: RequestInit): Promise<any> {
-  const baseUrl = process.env.BASE_URL || 'https://staging.pulsemaker.win';
+  const baseUrl = process.env.BASE_URL || 'https://pulsemaker.win';
   const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
 
   const response = await fetch(fullUrl, init);

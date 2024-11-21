@@ -42,6 +42,8 @@ import { useVotedProposals } from 'modules/executive/hooks/useVotedProposals';
 import { fetchLandingPageData } from 'modules/home/api/fetchLandingPageData';
 import { LandingPageData } from 'modules/home/api/fetchLandingPageData';
 import { useLandingPageDelegates } from 'modules/gql/hooks/useLandingPageDelegates';
+import SuggestionsBox from 'modules/app/components/SuggestionsBox';
+import Cookies from 'js-cookie';
 
 const LandingPage = ({
   proposals,
@@ -59,6 +61,7 @@ const LandingPage = ({
   const [videoOpen, setVideoOpen] = useState(false);
   const [mode] = useColorMode();
   const [backgroundImage, setBackroundImage] = useState('url(/assets/bg_medium.jpeg)');
+  const [showPopup, setShowPopup] = useState(false);
 
   // change background on color mode switch
   useEffect(() => {
@@ -132,8 +135,69 @@ const LandingPage = ({
     }
   }, []);
 
+  useEffect(() => {
+    const hasSeenPopup = Cookies.get('hasSeenPopup');
+    if (!hasSeenPopup) {
+      setShowPopup(true);
+    }
+  }, []);
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    Cookies.set('hasSeenPopup', 'true', { expires: 365 }); // Set cookie to expire in 1 year
+  };
+
   return (
     <div>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>
+              This is a fork of the MakerDAO Governance site. All thanks to them for the hard development work
+              and for allowing us to repurpose for PulseChain.
+            </p>
+            <p>
+              This site is still under development and makes no guarantees. The code is available at{' '}
+              <a
+                href="https://github.com/pulsemakerwin/governance-portal-v2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github.com/pulsemakerwin/governance-portal-v2
+              </a>
+            </p>
+            <button onClick={handleClosePopup}>Okay</button>
+          </div>
+        </div>
+      )}
+      {/* eslint-disable-next-line react/no-unknown-property */}
+      <style jsx>{`
+        .popup {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+        }
+
+        .popup-content {
+          background-color: black;
+          padding: 20px;
+          border-radius: 5px;
+          text-align: center;
+          box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .popup-content a {
+          color: white;
+          text-decoration: underline;
+        }
+      `}</style>
       {delegates.length === 0 && delegatesInfo.length === 0 && polls.length === 0 && (
         <Alert variant="warning">
           <Text>There is a problem loading the governance data. Please, try again later.</Text>
@@ -168,8 +232,7 @@ const LandingPage = ({
                     Voting Portal
                   </Heading>
                   <Text as="p" sx={{ fontWeight: 'semiBold', my: 3, width: ['100%', '100%', '80%'] }}>
-                    Vote with or delegate your MKR tokens to help protect the integrity of the PulseMaker
-                    protocol
+                    Vote with your pMKR tokens to help protect the integrity of the PulseMaker protocol
                   </Text>
                   <Box>
                     <PlayButton
@@ -278,6 +341,7 @@ const LandingPage = ({
             >
               <ViewMore label="Back to the top" icon="chevron_up" />
             </Flex>
+            <SuggestionsBox />
           </Stack>
         </PrimaryLayout>
       </StickyContainer>

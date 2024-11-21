@@ -17,8 +17,8 @@ import { useAccount } from 'modules/app/hooks/useAccount';
 
 export default function ManageDelegation({
   delegate,
-  textDelegate = 'Delegate MKR to this delegate',
-  textUndelegate = 'Undelegate MKR from this delegate'
+  textDelegate = 'Delegate pMKR to this delegate',
+  textUndelegate = 'Undelegate pMKR from this delegate'
 }: {
   delegate: Delegate;
   textDelegate?: string;

@@ -117,5 +117,5 @@ export type Comment = PollComment | ExecutiveComment;
 export enum CommentSortOption {
   LATEST = 'latest',
   OLDEST = 'oldest',
-  MKR_AMOUNT = 'MKR amount'
+  MKR_AMOUNT = 'pMKR amount'
 }

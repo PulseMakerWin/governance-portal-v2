@@ -226,7 +226,7 @@ const DelegatedByAddress = ({ delegators, totalDelegated }: DelegatedByAddressPr
           Delegators
         </Text>
         <Text as="p" variant="secondary" color="onSurface">
-          Addresses that have delegated MKR to this delegate
+          Addresses that have delegated pMKR to this delegate
         </Text>
       </Box>
       <table
@@ -271,7 +271,7 @@ const DelegatedByAddress = ({ delegators, totalDelegated }: DelegatedByAddressPr
                 ''
               )}
             </Text>
-            <Tooltip label={'This is the percentage of the total MKR delegated to this delegate.'}>
+            <Tooltip label={'This is the percentage of the total pMKR delegated to this delegate.'}>
               <Text
                 as="th"
                 sx={{ cursor: 'pointer', textAlign: 'left', pb: 2, width: '20%' }}

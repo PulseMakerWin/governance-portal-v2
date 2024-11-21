@@ -26,24 +26,12 @@ const resources: Record<ResourceType, Resource> = {
     boxTitle: 'General Maker Resources',
     links: [
       {
-        linkTitle: 'Learn about Maker and Dai',
-        url: 'https://makerdao.com/en/'
-      },
-      {
-        linkTitle: 'Learn about Maker Endgame',
-        url: 'https://forum.makerdao.com/t/the-5-phases-of-endgame/20830/'
-      },
-      {
-        linkTitle: 'Governance Forum',
-        url: 'https://forum.makerdao.com/'
-      },
-      {
         linkTitle: 'Governance Documentation',
         url: 'https://manual.makerdao.com/'
       },
       {
         linkTitle: 'Governance discussion on Discord',
-        url: 'https://discord.gg/BBP6swTkBk'
+        url: 'https://discord.gg/Sfyfuck2'
       }
     ]
   },
@@ -51,7 +39,7 @@ const resources: Record<ResourceType, Resource> = {
     boxTitle: 'Polling FAQs',
     links: [
       {
-        linkTitle: 'How to participate in MakerDAO governance?',
+        linkTitle: 'How to participate in PulseMaker governance?',
         url: 'https://manual.makerdao.com/governance/voting-in-makerdao'
       },
       {
@@ -69,10 +57,6 @@ const resources: Record<ResourceType, Resource> = {
       {
         linkTitle: 'How to vote in on-chain governance?',
         url: 'https://manual.makerdao.com/governance/voting-in-makerdao/how-to-vote'
-      },
-      {
-        linkTitle: 'How does gasless poll voting work?',
-        url: 'https://manual.makerdao.com/governance/voting-in-makerdao/gasless-poll-voting/'
       }
     ]
   },
@@ -80,7 +64,7 @@ const resources: Record<ResourceType, Resource> = {
     boxTitle: 'Executive Proposal FAQs',
     links: [
       {
-        linkTitle: 'How to participate in MakerDAO governance?',
+        linkTitle: 'How to participate in PulseMaker governance?',
         url: 'https://manual.makerdao.com/governance/voting-in-makerdao'
       },
       {
@@ -105,7 +89,7 @@ const resources: Record<ResourceType, Resource> = {
     boxTitle: 'Delegation FAQs',
     links: [
       {
-        linkTitle: 'What is MKR vote delegation?',
+        linkTitle: 'What is pMKR vote delegation?',
         url: 'https://manual.makerdao.com/delegation/overview/what-is-delegation'
       },
       {
@@ -117,11 +101,7 @@ const resources: Record<ResourceType, Resource> = {
         url: 'https://mips.makerdao.com/mips/details/MIP101#2-6-aligned-delegates-ads-gov6'
       },
       {
-        linkTitle: 'What is Maker Endgame?',
-        url: 'https://endgame.makerdao.com/endgame/overview'
-      },
-      {
-        linkTitle: "The MKR holder's guide to delegation",
+        linkTitle: "The pMKR holder's guide to delegation",
         url: 'https://manual.makerdao.com/delegation/for-mkr-holders/mkr-holder-guide'
       }
     ]

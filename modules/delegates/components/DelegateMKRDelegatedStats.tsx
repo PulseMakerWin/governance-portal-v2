@@ -68,7 +68,7 @@ export function DelegateMKRDelegatedStats({
       {account && (
         <StatBox
           value={typeof mkrStaked !== 'undefined' ? formatValue(mkrStaked) : '0'}
-          label={'MKR delegated by you'}
+          label={'pMKR delegated by you'}
         />
       )}
     </Flex>

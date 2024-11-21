@@ -35,6 +35,10 @@
   "rules": {
     "@typescript-eslint/ban-ts-comment": "warn",
     "@typescript-eslint/no-explicit-any": "off",
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": ["warn", {
+      "allow": ["arrowFunctions"]
+    }],
     "no-console": "off",
     "linebreak-style": ["error", "unix"],
     "semi": ["error", "always"],

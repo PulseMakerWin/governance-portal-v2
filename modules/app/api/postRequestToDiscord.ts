@@ -15,7 +15,7 @@ export async function postRequestToDiscord({
   content: string;
   notify: boolean;
 }) {
-  const contentString = `${'```'}${content}${'```'}${notify ? '<@&869997200208441344>' : ''}`;
+  const contentString = `${'```'}${content}${'```'}${notify ? '<@&1308563230792224838>' : ''}`;
   const resp = await fetch(url, {
     method: 'POST',
     headers: {

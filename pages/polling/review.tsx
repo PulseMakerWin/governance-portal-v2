@@ -90,18 +90,18 @@ const PollingReview = ({ polls: activePolls, activePollIds, tags }: PollingRevie
       const poll = previousVotedPolls.find(poll => poll.pollId === modalPollId);
       if (!poll) return '';
       const option = poll.options[previousBallot[poll.pollId].option as number];
-      url = `https://stagigin.pulsemaker.win/polling/${poll.slug}`;
+      url = `https://pulsemaker.win/polling/${poll.slug}`;
       text = `I just voted ${
         option ? option + ' ' : ''
       }on a MakerDAO governance poll! Learn more about the poll on the Governance Portal:`;
     } else {
       // all votes
-      url = 'https://staging.pulsemaker.win';
+      url = 'https://pulsemaker.win';
       text = `I just voted on ${
         previousVotesLength > 1 ? previousVotesLength : 'a'
       } PulseMaker governance poll${
         previousVotesLength > 1 ? 's' : ''
-      }! Find my votes and all Maker governance proposals on the Governance Portal:`;
+      }! Find my votes and all governance proposals on the PulseMaker Governance Portal:`;
     }
 
     return (
@@ -138,7 +138,7 @@ const PollingReview = ({ polls: activePolls, activePollIds, tags }: PollingRevie
         option = markdownArray.reduce((previousValue, currentValue) => previousValue + currentValue);
       }
       const comment = previousBallot[poll.pollId]?.comment;
-      markdown += `[${poll.title}](https://staging.pulsemaker.win/polling/${poll.slug}) ([thread](${poll.discussionLink}))  \n`;
+      markdown += `[${poll.title}](https://pulsemaker.win/polling/${poll.slug}) ([thread](${poll.discussionLink}))  \n`;
       if (option) markdown += `Voted: ${option}  \n`;
       markdown += comment ? `Reasoning: ${comment}  \n` : '  \n';
       markdown += '  \n';

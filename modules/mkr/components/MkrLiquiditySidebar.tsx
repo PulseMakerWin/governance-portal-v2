@@ -182,7 +182,7 @@ export default function MkrLiquiditySidebar({
       <Flex key={poolName} sx={{ flexDirection: 'column' }}>
         <Flex sx={{ justifyContent: 'space-between', flexDirection: 'row' }}>
           <Flex sx={{ alignItems: 'center' }}>
-            <Text sx={{ fontSize: 3, color: 'textSecondary' }}>MKR in {poolName}</Text>
+            <Text sx={{ fontSize: 3, color: 'textSecondary' }}>pMKR in {poolName}</Text>
             {subpools && (
               <Box sx={{ ml: 1 }}>
                 <Flex
@@ -213,7 +213,7 @@ export default function MkrLiquiditySidebar({
           </Flex>
           <Text variant="h2" sx={{ fontSize: 3 }}>
             {poolLiquidity ? (
-              `${formatValue(poolLiquidity)} MKR`
+              `${formatValue(poolLiquidity)} pMKR`
             ) : (
               <Box sx={{ width: 6 }}>
                 <Skeleton />
@@ -236,11 +236,11 @@ export default function MkrLiquiditySidebar({
                   }}
                 >
                   <Flex sx={{ alignItems: 'center' }}>
-                    <Text sx={{ fontSize: 2, color: 'textSecondary' }}>MKR in {subpoolName}</Text>
+                    <Text sx={{ fontSize: 2, color: 'textSecondary' }}>pMKR in {subpoolName}</Text>
                   </Flex>
                   <Text variant="h2" sx={{ fontSize: 2, color: 'textSecondary' }}>
                     {subpoolLiquidity ? (
-                      `${formatValue(subpoolLiquidity)} MKR`
+                      `${formatValue(subpoolLiquidity)} pMKR`
                     ) : (
                       <Box sx={{ width: 6 }}>
                         <Skeleton />

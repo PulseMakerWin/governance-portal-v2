@@ -110,10 +110,10 @@ export default function SystemStatsSidebar({
 
       return (
         <Flex key={key} sx={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-          <Text sx={{ fontSize: 3, color: 'textSecondary' }}>MKR in Chief</Text>
+          <Text sx={{ fontSize: 3, color: 'textSecondary' }}>pMKR in Chief</Text>
           <Text variant="h2" sx={{ fontSize: 3 }}>
             {chiefBalance ? (
-              `${formatValue(chiefBalance)} MKR`
+              `${formatValue(chiefBalance)} pMKR`
             ) : (
               <Box sx={{ width: 6 }}>
                 <Skeleton />
@@ -190,10 +190,10 @@ export default function SystemStatsSidebar({
 
       return (
         <Flex key={key} sx={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-          <Text sx={{ fontSize: 3, color: 'textSecondary' }}>MKR on Governing Proposal</Text>
+          <Text sx={{ fontSize: 3, color: 'textSecondary' }}>pMKR on Governing Proposal</Text>
           <Text variant="h2" sx={{ fontSize: 3 }}>
             {mkrOnHat ? (
-              `${formatValue(mkrOnHat)} MKR`
+              `${formatValue(mkrOnHat)} pMKR`
             ) : (
               <Box sx={{ width: 6 }}>
                 <Skeleton />
@@ -209,7 +209,7 @@ export default function SystemStatsSidebar({
 
       return (
         <Flex key={key} sx={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-          <Text sx={{ fontSize: 3, color: 'textSecondary' }}>Dai Savings Rate</Text>
+          <Text sx={{ fontSize: 3, color: 'textSecondary' }}>pDAI Savings Rate</Text>
           <Text variant="h2" sx={{ fontSize: 3 }}>
             {daiSavingsRate ? (
               `${daiSavingsRate.toFixed(2)}%`
@@ -228,10 +228,10 @@ export default function SystemStatsSidebar({
 
       return (
         <Flex key={key} sx={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-          <Text sx={{ fontSize: 3, color: 'textSecondary' }}>Total Dai</Text>
+          <Text sx={{ fontSize: 3, color: 'textSecondary' }}>Total pDAI</Text>
           <Text variant="h2" sx={{ fontSize: 3 }}>
             {totalDai ? (
-              `${formatValue(totalDai, 'rad')} DAI`
+              `${formatValue(totalDai, 'rad')} pDAI`
             ) : (
               <Box sx={{ width: 6 }}>
                 <Skeleton />
@@ -247,10 +247,10 @@ export default function SystemStatsSidebar({
 
       return (
         <Flex key={key} sx={{ justifyContent: 'space-between', flexDirection: 'row' }}>
-          <Text sx={{ fontSize: 3, color: 'textSecondary' }}>Dai Debt Ceiling</Text>
+          <Text sx={{ fontSize: 3, color: 'textSecondary' }}>pDAI Debt Ceiling</Text>
           <Text variant="h2" sx={{ fontSize: 3 }}>
             {debtCeiling ? (
-              `${formatValue(debtCeiling, 'rad')} DAI`
+              `${formatValue(debtCeiling, 'rad')} pDAI`
             ) : (
               <Box sx={{ width: 6 }}>
                 <Skeleton />
@@ -269,7 +269,7 @@ export default function SystemStatsSidebar({
           <Text sx={{ fontSize: 3, color: 'textSecondary' }}>System Surplus</Text>
           <Text variant="h2" sx={{ fontSize: 3 }}>
             {systemSurplus ? (
-              `${formatValue(systemSurplus, 'rad')} DAI`
+              `${formatValue(systemSurplus, 'rad')} pDAI`
             ) : (
               <Box sx={{ width: 6 }}>
                 <Skeleton />

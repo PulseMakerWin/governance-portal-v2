@@ -91,7 +91,8 @@ const AccountPage = (): React.ReactElement => {
               </ClientRenderOnly>
             </Box>
           ) : (
-            <Box sx={{ mt: 4 }}>
+            <>
+              {/* <Box sx={{ mt: 4 }}>
               <Box sx={{ my: 3 }}>
                 <Heading as="h3" variant="microHeading">
                   Vote Delegation
@@ -212,7 +213,8 @@ const AccountPage = (): React.ReactElement => {
                   </Flex>
                 )}
               </Card>
-            </Box>
+            </Box> */}
+            </>
           )}
         </Box>
         <Stack gap={3}>

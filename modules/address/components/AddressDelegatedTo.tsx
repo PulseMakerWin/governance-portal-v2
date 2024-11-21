@@ -204,7 +204,7 @@ const AddressDelegatedTo = ({ delegatedTo, totalDelegated }: AddressDelegatedToP
               MKR Delegated
             </Text>
             <Text as="th" sx={{ textAlign: 'left', pb: 2, width: bpi > 1 ? '20%' : '25%' }} variant="caps">
-              <Tooltip label={'This is the percentage of the total MKR delegated by this address.'}>
+              <Tooltip label={'This is the percentage of the total pMKR delegated by this address.'}>
                 <Flex>
                   <span>Voting Weight</span>
                   <Icon name="question" ml={1} />

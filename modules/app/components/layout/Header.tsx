@@ -73,7 +73,7 @@ const HeaderMenu = ({ onToggleTheme, mode, ...props }): JSX.Element => {
         >
           <ExternalLink
             styles={{ variant: 'links.nostyle' }}
-            href="https://discord.gg/GHcFMdKden"
+            href="https://discord.gg/Sfyfuck2"
             title="Support"
           >
             <MenuItemContent icon="discord_outline" label="Support" />
@@ -87,7 +87,7 @@ const HeaderMenu = ({ onToggleTheme, mode, ...props }): JSX.Element => {
         >
           <ExternalLink
             styles={{ variant: 'links.nostyle' }}
-            href="https://governance-metrics-dashboard.vercel.app/"
+            href="" //Need to get additional stats or remove
             title="Stats"
           >
             <MenuItemContent icon="stats" label="Stats" />
@@ -237,7 +237,7 @@ const Header = (): JSX.Element => {
       <Flex sx={{ alignItems: 'center' }}>
         {bpi > 1 && account && network === SupportedNetworks.MAINNET && gas && (
           <ExternalLink
-            title="Ethereum Gas Price"
+            title="PulseChain Gas Price"
             href={GASNOW_URL}
             styles={{
               variant: 'links.nostyle'
@@ -386,7 +386,7 @@ const MobileMenu = ({ hide, router, gas, onToggleTheme, mode, network }) => {
             </InternalLink>
             {network === SupportedNetworks.MAINNET && (
               <ExternalLink
-                title="Ethereum Gas Price"
+                title="PulseChain Gas Price"
                 href={GASNOW_URL}
                 styles={{
                   variant: 'links.nostyle'
@@ -408,7 +408,7 @@ const MobileMenu = ({ hide, router, gas, onToggleTheme, mode, network }) => {
             <Flex onClick={hide}>
               <ExternalLink
                 styles={{ variant: 'links.nostyle' }}
-                href="https://discord.gg/GHcFMdKden"
+                href="https://discord.gg/Sfyfuck2"
                 title="Support"
               >
                 <MenuItemContent icon="discord_outline" label="Support" />
@@ -420,7 +420,7 @@ const MobileMenu = ({ hide, router, gas, onToggleTheme, mode, network }) => {
             <Flex onClick={hide}>
               <ExternalLink
                 styles={{ variant: 'links.nostyle' }}
-                href="https://governance-metrics-dashboard.vercel.app/"
+                href="" //Need to get additional stats or remove
                 title="Stats"
               >
                 <MenuItemContent icon="stats" label="Stats" />

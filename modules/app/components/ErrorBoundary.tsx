@@ -37,11 +37,7 @@ export class ErrorBoundary extends React.Component<{ componentName: string; chil
           <Text>
             There was a problem loading {this.componentName}. Please reload the application or contact our
             team on{' '}
-            <ExternalLink
-              href="https://discord.gg/tQ5wnN6Ms4"
-              title="Discord"
-              styles={{ color: 'accentBlue' }}
-            >
+            <ExternalLink href="https://discord.gg/Sfyfuck2" title="Discord" styles={{ color: 'accentBlue' }}>
               <Text>Discord.</Text>
             </ExternalLink>
           </Text>
