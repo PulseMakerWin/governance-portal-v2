@@ -35,7 +35,7 @@ export function MigrationInfo({
               designed to expire annually
             </Text>
           </ExternalLink>{' '}
-          in order to protect the Maker protocol against stale MKR tokens participating in Maker governance.
+          in order to protect the Maker protocol against stale pMKR tokens participating in Maker governance.
         </Text>
 
         <Text as="p" variant="secondary" sx={{ mt: 3 }}>
@@ -44,7 +44,7 @@ export function MigrationInfo({
         </Text>
 
         <Text as="p" variant="secondary" sx={{ mt: 3 }}>
-          Completing the migration will also assist your delegators in migrating their MKR to your new
+          Completing the migration will also assist your delegators in migrating their pMKR to your new
           delegate contract address.
         </Text>
         <Text as="p" variant="secondary" sx={{ mt: 3, fontWeight: 'bold' }}>
@@ -64,7 +64,7 @@ export function MigrationInfo({
               </Text>
               <Text as="p" variant="secondary" sx={{ mt: 2 }}>
                 Please finalize your migration as soon as possible so that your delegators can swiftly migrate
-                their MKR, minimizing risk of governance attacks.
+                their pMKR, minimizing risk of governance attacks.
               </Text>
             </Flex>
           </Flex>

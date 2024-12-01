@@ -48,16 +48,16 @@ export const useLock = (): LockResponse => {
       return sendTransaction(populatedTransaction, provider, account);
     };
 
-    const transactionId = track(lockTxCreator, account, 'Depositing MKR', {
+    const transactionId = track(lockTxCreator, account, 'Depositing pMKR', {
       pending: () => {
         if (typeof callbacks?.pending === 'function') callbacks.pending();
       },
       mined: txId => {
-        transactionsApi.getState().setMessage(txId, 'MKR deposited');
+        transactionsApi.getState().setMessage(txId, 'pMKR deposited');
         if (typeof callbacks?.mined === 'function') callbacks.mined();
       },
       error: txId => {
-        transactionsApi.getState().setMessage(txId, 'MKR deposit failed');
+        transactionsApi.getState().setMessage(txId, 'pMKR deposit failed');
         if (typeof callbacks?.error === 'function') callbacks.error();
       }
     });

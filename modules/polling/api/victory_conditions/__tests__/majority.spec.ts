@@ -10,7 +10,7 @@ import { PollTallyVote } from 'modules/polling/types';
 import { extractWinnerMajority } from '../majority';
 
 describe('Majority calculation', () => {
-  it('returns the option with more MKR', () => {
+  it('returns the option with more pMKR', () => {
     const votes: PollTallyVote[] = [
       {
         mkrSupport: 10,

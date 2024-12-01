@@ -65,8 +65,8 @@ export function InputDelegateMkr({
       {showAlert && lockedMkr && lockedMkr.gte(parseUnits('0.1')) && balance && balance.gt(0) && (
         <Alert variant="notice" sx={{ fontWeight: 'normal' }}>
           <Text>
-            {`You have ${formatValue(lockedMkr)} additional MKR locked in the voting contract. `}
-            <Withdraw link={'Withdraw MKR'} />
+            {`You have ${formatValue(lockedMkr)} additional pMKR locked in the voting contract. `}
+            <Withdraw link={'Withdraw pMKR'} />
             {' to deposit it into a delegate contract.'}
           </Text>
         </Alert>
@@ -75,7 +75,7 @@ export function InputDelegateMkr({
         <Alert variant="notice" sx={{ fontWeight: 'normal' }}>
           <Text>
             {'You must '}
-            <Withdraw link={'withdraw your MKR'} />
+            <Withdraw link={'withdraw your pMKR'} />
             {' from the voting contract before delegating it.'}
           </Text>
         </Alert>

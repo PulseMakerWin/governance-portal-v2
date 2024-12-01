@@ -29,7 +29,7 @@ export const getStatusText = ({
   if (!spellData) return 'Fetching status...';
 
   if (proposalAddress === ZERO_ADDRESS) {
-    return `This proposal surpased the 80,000 MKR threshold on ${formatDateWithTime(1607704862000)} – the new
+    return `This proposal surpased the 80,000 pMKR threshold on ${formatDateWithTime(1607704862000)} – the new
     chief has been activated!`;
   }
 
@@ -63,7 +63,7 @@ export const getStatusText = ({
       ? mkrOnHat.sub(spellData.mkrSupport)
       : BigNumber.from(0);
 
-    return `${formatValue(mkrNeeded)} additional MKR support needed to pass. Expires at ${formatDateWithTime(
+    return `${formatValue(mkrNeeded)} additional pMKR support needed to pass. Expires at ${formatDateWithTime(
       spellData.expiration
     )}.`;
   }

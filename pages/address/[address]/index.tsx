@@ -81,7 +81,7 @@ const AddressView = ({
         </Stack>
         <Stack gap={3}>
           {addressInfo.isDelegate && addressInfo.delegateInfo && (
-            <ErrorBoundary componentName="Delegate MKR">
+            <ErrorBoundary componentName="Delegate pMKR">
               <ManageDelegation delegate={addressInfo.delegateInfo} />
             </ErrorBoundary>
           )}

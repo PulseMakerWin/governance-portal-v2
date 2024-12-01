@@ -101,7 +101,7 @@ export function PollVoteHistoryItem({ vote }: { vote: PollVoteHistory }): React.
                 fontWeight: 'semiBold'
               }}
             >
-              {formatValue(parseUnits(vote.mkrSupport.toString()), undefined, undefined, true, true)} MKR
+              {formatValue(parseUnits(vote.mkrSupport.toString()), undefined, undefined, true, true)} pMKR
             </Text>
           </Box>
         </Box>

@@ -19,10 +19,10 @@ const DefaultScreen = ({ setShowDialog, setStep }: Props): JSX.Element => (
     <Close onClick={() => setShowDialog(false)} sx={{ alignSelf: 'flex-end' }} />
     <Icon ml={2} name="warning" size={5} sx={{ color: 'notice' }} />
     <Text variant="heading" mt={4}>
-      Are you sure you want to burn MKR?
+      Are you sure you want to burn pMKR?
     </Text>
     <Text variant="text" sx={{ mt: 3, textAlign: 'center' }}>
-      By burning your MKR in the ESM, you are contributing to the shutdown of the Dai Credit System. Your MKR
+      By burning your pMKR in the ESM, you are contributing to the shutdown of the Dai Credit System. Your pMKR
       will be immediately burned and cannot be retrieved.
     </Text>
     <Grid columns={2} mt={4}>

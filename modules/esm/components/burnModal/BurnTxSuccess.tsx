@@ -24,7 +24,7 @@ const BurnTxSuccess = ({ tx, close }) => {
       />
 
       <Text variant="heading" sx={{ fontSize: 6 }}>
-        MKR successfully burned in ESM
+        pMKR successfully burned in ESM
       </Text>
       <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
         <Text as="p" sx={{ color: 'onSecondary', fontWeight: 'medium', textAlign: 'center', mt: 2 }}>

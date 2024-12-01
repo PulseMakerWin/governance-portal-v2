@@ -28,7 +28,7 @@ export async function fetchChainDelegates(
   const delegatesWithMkrStaked: DelegateContractInformation[] = await Promise.all(
     delegates.map(async (delegate): Promise<DelegateContractInformation> => {
       if (delegate?.voteDelegate && delegate.delegate) {
-        // Get MKR delegated to each contract
+        // Get pMKR delegated to each contract
         const mkr = await contracts.chief.deposits(delegate.voteDelegate);
 
         const chainDelegate: DelegateContractInformation = {

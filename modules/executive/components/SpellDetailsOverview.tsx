@@ -72,10 +72,10 @@ export const SpellDetailsOverview = ({ spellDetails }: Props): JSX.Element => {
       </Flex>
       <Flex sx={{ mt: 3, flexDirection: ['column', 'row'] }}>
         <Text as="span" sx={{ fontWeight: 'bold' }}>
-          MKR support:
+          pMKR support:
         </Text>
         <Text sx={{ ml: [0, 3], color: 'onSecondary' }}>
-          {formatValue(BigNumber.from(spellDetails?.mkrSupport))} MKR
+          {formatValue(BigNumber.from(spellDetails?.mkrSupport))} pMKR
         </Text>
       </Flex>
       <Flex sx={{ mt: 3, flexDirection: ['column', 'row'] }}>

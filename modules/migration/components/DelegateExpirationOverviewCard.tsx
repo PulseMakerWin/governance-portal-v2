@@ -74,7 +74,7 @@ export function DelegateExpirationOverviewCard({ delegate }: PropTypes): React.R
                 {mkrDelegated ? formatValue(mkrDelegated) : '0'}
               </Text>
               <Text as="p" variant="secondary" color="onSecondary" sx={{ fontSize: [2, 3] }}>
-                MKR delegated by you
+                pMKR delegated by you
               </Text>
             </Box>
             <Box>

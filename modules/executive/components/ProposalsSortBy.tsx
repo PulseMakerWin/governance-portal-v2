@@ -22,7 +22,7 @@ export default function ProposalsSortBy(props): JSX.Element {
     <FilterButton
       name={() =>
         `Sort by ${
-          executiveSortBy === 'date' ? 'Date Posted' : executiveSortBy === 'mkr' ? 'MKR Amount' : 'Active'
+          executiveSortBy === 'date' ? 'Date Posted' : executiveSortBy === 'mkr' ? 'pMKR Amount' : 'Active'
         }`
       }
       listVariant="menubuttons.default.list"
@@ -53,7 +53,7 @@ export default function ProposalsSortBy(props): JSX.Element {
           fontWeight: executiveSortBy === 'mkr' ? 'bold' : undefined
         }}
       >
-        MKR Amount
+        pMKR Amount
       </MenuItem>
     </FilterButton>
   );

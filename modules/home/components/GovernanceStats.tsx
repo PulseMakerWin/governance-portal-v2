@@ -23,7 +23,7 @@ export function GovernanceStats({ pollStats, stats, mkrOnHat, mkrInChief }: Prop
   const infoUnits = [
     {
       title: 'pMKR on Hat',
-      value: mkrOnHat ? `${mkrOnHat} MKR` : <Skeleton />
+      value: mkrOnHat ? `${mkrOnHat} pMKR` : <Skeleton />
     },
     {
       title: 'Active Polls',

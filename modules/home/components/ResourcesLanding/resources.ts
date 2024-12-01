@@ -44,7 +44,7 @@ export const resources: LandingResource[] = [
     color: ResourceColor.GOVERNANCE,
     logo: '/assets/resource_icon_2.svg',
     summary:
-      'Documentation on the Maker protocol & MakerDAO processes, written for MKR holders that actively participate in governance.'
+      'Documentation on the Maker protocol & MakerDAO processes, written for pMKR holders that actively participate in governance.'
   },
   {
     title: 'Technical Docs',

@@ -153,7 +153,7 @@ const VotesByAddress = ({ tally, poll }: Props): JSX.Element => {
               data-testid="mkr-header"
               onClick={() => changeSort('mkr')}
             >
-              MKR
+              pMKR
               {sortBy.type === 'mkr' ? (
                 sortBy.order === 1 ? (
                   <Icon name="chevron_down" size={2} ml={1} />
@@ -216,7 +216,7 @@ const VotesByAddress = ({ tally, poll }: Props): JSX.Element => {
                     sx={{ textAlign: ['right', 'right', 'left'], pb: 2, fontSize: [1, 3] }}
                   >
                     {`${formatValue(parseUnits(v.mkrSupport.toString()), undefined, undefined, true, true)}${
-                      bpi > 3 ? ' MKR' : ''
+                      bpi > 3 ? ' pMKR' : ''
                     }`}
                   </Text>
                   {bpi > 1 && (

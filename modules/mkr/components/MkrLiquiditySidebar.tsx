@@ -56,7 +56,7 @@ async function getBalancerV1Mkr(mkrAddress: string) {
   const json = await resp.json();
   const balancerNum = json.data.pools
     .flatMap(pool => pool.tokens)
-    .reduce((sum, token) => (token.symbol === 'MKR' ? parseFloat(token.balance) : 0) + sum, 0);
+    .reduce((sum, token) => (token.symbol === 'pMKR' ? parseFloat(token.balance) : 0) + sum, 0);
   return parseUnits(parseInt(balancerNum).toString());
 }
 
@@ -162,10 +162,10 @@ export default function MkrLiquiditySidebar({
           .add(uniswapV3MkrEthPointThreePercent)
           .add(uniswapV3MkrEthOnePercent),
       [
-        ['Uniswap V2 (MKR/DAI)', uniswapV2MkrDai],
-        ['Uniswap V3 (MKR/ETH 0.3%)', uniswapV3MkrEthPointThreePercent],
-        ['Uniswap V3 (MKR/ETH 1%)', uniswapV3MkrEthOnePercent],
-        ['Uniswap V2 (MKR/ETH)', uniswapV2MkrEth]
+        ['Uniswap V2 (pMKR/pDAI)', uniswapV2MkrDai],
+        ['Uniswap V3 (pMKR/ETH 0.3%)', uniswapV3MkrEthPointThreePercent],
+        ['Uniswap V3 (pMKR/ETH 1%)', uniswapV3MkrEthOnePercent],
+        ['Uniswap V2 (pMKR/ETH)', uniswapV2MkrEth]
       ]
     ],
     ['Sushi', sushi],
@@ -174,7 +174,7 @@ export default function MkrLiquiditySidebar({
 
   const totalLiquidity = `${formatValue(
     mkrPools.reduce((acc, cur) => acc.add((cur[1] as BigNumber) || 0), BigNumber.from(0))
-  )} MKR`;
+  )} pMKR`;
 
   const PoolComponent = pool => {
     const [poolName, poolLiquidity, subpools] = pool;
@@ -260,7 +260,7 @@ export default function MkrLiquiditySidebar({
     <Box sx={{ display: ['none', 'block'] }} className={className}>
       <Flex sx={{ alignItems: 'center', justifyContent: 'space-between', mb: 2, mt: 4 }}>
         <Heading as="h3" variant="microHeading">
-          MKR Liquidity
+          pMKR Liquidity
         </Heading>
         <Text sx={{ fontSize: 4 }}>{totalLiquidity}</Text>
       </Flex>

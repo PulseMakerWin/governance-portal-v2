@@ -24,8 +24,8 @@ import { validateAddress } from 'modules/web3/api/validateAddress';
  *   get:
  *     tags:
  *       - "delegates"
- *     summary: Get information about the current delegate to MKR
- *     description: Get information about the current delegate to MKR
+ *     summary: Get information about the current delegate to pMKR
+ *     description: Get information about the current delegate to pMKR
  *     parameters:
  *       - name: address
  *         in: query

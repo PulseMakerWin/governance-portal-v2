@@ -37,7 +37,7 @@ export default function PollCommentItem({
     return (
       <Text>
         Voted {<VotedOption vote={commentVote} poll={poll} align={bpi > 0 ? 'right' : 'left'} />}
-        with {formatValue(comment.comment.voterWeight, undefined, undefined, true, true)} MKR
+        with {formatValue(comment.comment.voterWeight, undefined, undefined, true, true)} pMKR
       </Text>
     );
   };

@@ -16,6 +16,7 @@ import { RepositoryInfo } from 'modules/delegates/api/getDelegatesRepositoryInfo
 const token1 = config.GITHUB_TOKEN;
 const token2 = config.GITHUB_TOKEN_2 ? config.GITHUB_TOKEN_2 : config.GITHUB_TOKEN;
 const token3 = config.GITHUB_TOKEN_3 ? config.GITHUB_TOKEN_3 : config.GITHUB_TOKEN;
+const token4 = config.GITHUB_TOKEN_4 ? config.GITHUB_TOKEN_4 : config.GITHUB_TOKEN;
 
 let kitIndex = 0;
 
@@ -25,6 +26,7 @@ try {
   octokits[0] = new Octokit({ auth: token1 });
   octokits[1] = new Octokit({ auth: token2 });
   octokits[2] = new Octokit({ auth: token3 });
+  octokits[3] = new Octokit({ auth: token4 });
 } catch (e) {
   console.warn(
     'WARNING: GitHub token not configured correctly. Vote delegates and/or executives will not be fetched'
@@ -50,25 +52,33 @@ const getNextToken = () => {
 };
 
 export async function fetchGitHubPage(owner: string, repo: string, path: string): Promise<GithubPage[]> {
-  const octokit = getNextToken();
-  const { data } = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
-    mediaType: {
-      format: 'raw'
-    },
-    owner,
-    repo,
-    path
-  });
-
-  return data as GithubPage[];
+  try {
+    const octokit = getNextToken();
+    const { data } = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
+      mediaType: {
+        format: 'raw'
+      },
+      owner,
+      repo,
+      path
+    });
+    return data as GithubPage[];
+  } catch (error) {
+    console.error('Error fetching GitHub page:', error.message);
+    throw error; // Re-throw the error after logging
+  }
 }
 
 export async function fetchGithubGraphQL(
   { owner, repo, page }: RepositoryInfo,
   query: string
 ): Promise<GraphQlQueryResponseData> {
-  const octokit = getNextToken();
-  const data = await octokit.graphql(query, { owner, name: repo, expression: `master:${page}` });
-
-  return data as GraphQlQueryResponseData;
+  try {
+    const octokit = getNextToken();
+    const data = await octokit.graphql(query, { owner, name: repo, expression: `master:${page}` });
+    return data as GraphQlQueryResponseData;
+  } catch (error) {
+    console.error('Error fetching GitHub GraphQL data:', error.message);
+    throw error; // Re-throw the error after logging
+  }
 }

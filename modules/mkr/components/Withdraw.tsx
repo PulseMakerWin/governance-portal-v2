@@ -83,7 +83,7 @@ const ModalContent = ({ close, ...props }) => {
                 Withdraw from voting contract
               </Text>
               <Text as="p" sx={{ color: 'secondaryEmphasis', fontSize: 3 }}>
-                Input the amount of MKR to withdraw from the voting contract.
+                Input the amount of pMKR to withdraw from the voting contract.
               </Text>
             </Box>
 
@@ -92,13 +92,13 @@ const ModalContent = ({ close, ...props }) => {
                 onChange={setMkrToWithdraw}
                 balance={lockedMkr}
                 value={mkrToWithdraw}
-                balanceText="MKR in contract:"
+                balanceText="pMKR in contract:"
               />
             </Box>
 
             {voteProxyContract && account === voteProxyHotAddress && (
               <Alert variant="notice" sx={{ fontWeight: 'normal' }}>
-                You are using the hot wallet for a voting proxy. MKR will be withdrawn to the cold wallet.
+                You are using the hot wallet for a voting proxy. pMKR will be withdrawn to the cold wallet.
               </Alert>
             )}
             <Button
@@ -116,7 +116,7 @@ const ModalContent = ({ close, ...props }) => {
                 });
               }}
             >
-              Withdraw MKR
+              Withdraw pMKR
             </Button>
           </Stack>
         )}
@@ -127,7 +127,7 @@ const ModalContent = ({ close, ...props }) => {
                 Approve voting contract
               </Text>
               <Text as="p" sx={{ color: 'secondaryEmphasis', fontSize: 3 }}>
-                Approve the transfer of IOU tokens to the voting contract to withdraw your MKR.
+                Approve the transfer of IOU tokens to the voting contract to withdraw your pMKR.
               </Text>
             </Box>
 

@@ -98,8 +98,7 @@ export default function Footer({ locale = 'en' }: { locale?: string }): React.Re
   const logos = {
     sky: [
       { title: 'Telegram', url: 'https://t.me/PulseChainMKR', icon: 'telegram' },
-      { title: 'Twitter', url: 'https://x.com/PulseMakerWin', icon: 'twitter' },
-      { title: 'Discord', url: 'https://discord.gg/Sfyfuck2', icon: 'discord' }
+      { title: 'Twitter', url: 'https://x.com/PulseMakerWin', icon: 'twitter' }
     ]
   };
 

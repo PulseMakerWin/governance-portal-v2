@@ -39,7 +39,7 @@ describe('MKRInput', () => {
     expect(component).toHaveTextContent('Hey');
   });
 
-  test('Should reflect the balance of MKR', async () => {
+  test('Should reflect the balance of pMKR', async () => {
     const props: Partial<MKRInputProps> = {
       balance: parseUnits('24.5')
     };
@@ -110,6 +110,6 @@ describe('MKRInput', () => {
     const error = screen.getByTestId('mkr-input-error');
 
     expect(error).toBeVisible();
-    expect(error).toHaveTextContent('MKR balance too low');
+    expect(error).toHaveTextContent('pMKR balance too low');
   });
 });

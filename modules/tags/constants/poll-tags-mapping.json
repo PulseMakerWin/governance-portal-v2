@@ -1,3 +1,6 @@
 {
-  "1002": ["high-impact", "misc-governance"]
+  "1003": [
+    "high-impact",
+    "collateral-onboard"
+  ]
 }

@@ -51,7 +51,7 @@ const ProgressRing = ({
           {totalStaked ? `${formatValue(totalStaked, 'wad', 6)}` : '---'}
         </text>
         <text x="50%" y="58%" textAnchor="middle" fill="#708390" fontSize="14px" dy=".3em">
-          {`of ${thresholdAmount ? `${formatValue(thresholdAmount)} MKR` : '---'}`}
+          {`of ${thresholdAmount ? `${formatValue(thresholdAmount)} pMKR` : '---'}`}
         </text>
       </svg>
     </Flex>

@@ -70,7 +70,7 @@ export default function TopDelegates({
           </Box>
           <Box sx={{ width: '30%', textAlign: 'left', display: ['none', 'block'] }}>
             <Text as="p" variant="caps" sx={{ color: 'secondaryEmphasis' }}>
-              MKR
+              pMKR
             </Text>
           </Box>
         </Flex>
@@ -120,7 +120,7 @@ export default function TopDelegates({
                     display: ['none', 'flex']
                   }}
                 >
-                  <Text as="p">{mkrDelegated ? new BigNumber(mkrDelegated).toFixed(2) : '0.00'} MKR</Text>
+                  <Text as="p">{mkrDelegated ? new BigNumber(mkrDelegated).toFixed(2) : '0.00'} pMKR</Text>
                   <Button
                     variant="outline"
                     data-testid="button-delegate"

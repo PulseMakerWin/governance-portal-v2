@@ -41,7 +41,7 @@ describe('getMKRVotingWeight', () => {
     (getVoteProxyAddresses as jest.Mock).mockReturnValue({});
   });
 
-  it('should return 0 if no MKR is locked', async () => {
+  it('should return 0 if no pMKR is locked', async () => {
     const result = await getMKRVotingWeight(fakeDelegateOwnerAddress, SupportedNetworks.TENDERLY, false);
     expect(balanceMock).toHaveBeenLastCalledWith(fakeDelegateOwnerAddress);
     expect(result).toEqual({

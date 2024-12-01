@@ -11,19 +11,19 @@ test.skip('Input 150,000MKR and burn it', async ({ page }) => {
 
   await expect(page.locator('[data-testid="total-mkr-esmodule-staked"]')).toBeVisible();
 
-  await expect(page.locator('text=Burn Your MKR')).toBeVisible();
+  await expect(page.locator('text=Burn Your pMKR')).toBeVisible();
 
   //Click "burn your MKR button"
-  await page.locator('text=Burn Your MKR').click();
+  await page.locator('text=Burn Your pMKR').click();
 
   // Checks the modal is open
-  await expect(page.locator('text=Are you sure you want to burn MKR?')).toBeVisible();
+  await expect(page.locator('text=Are you sure you want to burn pMKR?')).toBeVisible();
 
   // Closes modal
   await page.locator('text=Cancel').click();
 
   // Click "burn your MKR button"
-  await page.locator('text=Burn Your MKR').click();
+  await page.locator('text=Burn Your pMKR').click();
 
   // Click continue
   await page.locator('text=Continue').click();
@@ -35,7 +35,7 @@ test.skip('Input 150,000MKR and burn it', async ({ page }) => {
   await page.locator('text=Continue').click();
 
   // Type the passphrase
-  await page.locator('[data-testid="confirm-input"]').fill('I am burning 150,000 MKR');
+  await page.locator('[data-testid="confirm-input"]').fill('I am burning 150,000 pMKR');
 
   // Unlock mkr
   await page.locator('[data-testid="allowance-toggle"]').click();
@@ -60,7 +60,7 @@ test.skip('Input 150,000MKR and burn it', async ({ page }) => {
   await page.locator('text=Initiate Emergency Shutdown').click();
 
   // See that the limit has been reached
-  await expect(page.locator('text=The 150,000 MKR limit for the emergency shutdown module has been reached.')).toBeVisible();
+  await expect(page.locator('text=The 150,000 pMKR limit for the emergency shutdown module has been reached.')).toBeVisible();
 
   // Continue and send the shutdown tx
   await page.locator('text=Continue').click();

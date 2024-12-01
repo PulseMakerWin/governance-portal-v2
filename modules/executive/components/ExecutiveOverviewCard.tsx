@@ -196,7 +196,7 @@ export default function ExecutiveOverviewCard({
               ) : (
                 <StatBox
                   value={formatValue(BigNumber.from(proposal.spellData?.mkrSupport))}
-                  label="MKR Supporting"
+                  label="pMKR Supporting"
                   styles={{ textAlign: 'right' }}
                 />
               )}

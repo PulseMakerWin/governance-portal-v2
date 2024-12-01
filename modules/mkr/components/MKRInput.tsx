@@ -27,13 +27,13 @@ export type MKRInputProps = {
 };
 
 export function MKRInput({
-  placeholder = '0.000000 MKR',
-  errorMaxMessage = 'MKR balance too low',
+  placeholder = '0.000000 pMKR',
+  errorMaxMessage = 'pMKR balance too low',
   onChange,
   min = BigNumber.from(0),
   max,
   balance,
-  balanceText = 'MKR Balance:',
+  balanceText = 'pMKR Balance:',
   value
 }: MKRInputProps): React.ReactElement {
   const [currentValueStr, setCurrentValueStr] = useState('');

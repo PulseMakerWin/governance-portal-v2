@@ -52,16 +52,16 @@ export const useOldChiefFree = (): FreeResponse => {
       return sendTransaction(populatedTransaction, provider, account);
     };
 
-    const transactionId = track(freeTxCreator, account, 'Withdrawing MKR', {
+    const transactionId = track(freeTxCreator, account, 'Withdrawing pMKR', {
       pending: () => {
         if (typeof callbacks?.pending === 'function') callbacks.pending();
       },
       mined: txId => {
-        transactionsApi.getState().setMessage(txId, 'MKR withdrawn');
+        transactionsApi.getState().setMessage(txId, 'pMKR withdrawn');
         if (typeof callbacks?.mined === 'function') callbacks.mined();
       },
       error: txId => {
-        transactionsApi.getState().setMessage(txId, 'MKR withdraw failed');
+        transactionsApi.getState().setMessage(txId, 'pMKR withdraw failed');
         if (typeof callbacks?.error === 'function') callbacks.error();
       }
     });

@@ -146,9 +146,9 @@ const QuickVote = ({
             }
           >
             {loading
-              ? 'Loading MKR balance...'
+              ? 'Loading pMKR balance...'
               : !votingWeight || !votingWeight.total.gt(0)
-              ? 'Deposit MKR to vote'
+              ? 'Deposit pMKR to vote'
               : isDelegateContractExpired
               ? 'Delegate contract expired'
               : addedChoice

@@ -92,7 +92,7 @@ export const DelegateModal = ({
                     mkrToDeposit,
                     'wad',
                     6
-                  )} MKR to ${delegate.name}.`}
+                  )} pMKR to ${delegate.name}.`}
                 >
                   <Box sx={{ textAlign: 'left', margin: '0 auto', p: 3 }}>
                     <DelegateAvatarName delegate={delegate} />
@@ -122,7 +122,7 @@ export const DelegateModal = ({
                         description="Input the amount of pMKR to deposit into the delegate contract."
                         onChange={setMkrToDeposit}
                         balance={mkrBalance}
-                        buttonLabel="Delegate MKR"
+                        buttonLabel="Delegate pMKR"
                         onClick={() => setConfirmStep(true)}
                         showAlert={true}
                       />

@@ -22,7 +22,7 @@ export function extractWinnerPlurality(currentVotes: PollTallyVote[]): number | 
     });
   });
 
-  // Sort options by MKR support
+  // Sort options by pMKR support
   const sortedOptions = Object.keys(votes)
     .map(option => {
       return {
@@ -34,7 +34,7 @@ export function extractWinnerPlurality(currentVotes: PollTallyVote[]): number | 
       return prev.mkrSupport.isGreaterThanOrEqualTo(next.mkrSupport) ? -1 : 1;
     });
 
-  // if the 2 first options share the same MKR amount, return null
+  // if the 2 first options share the same pMKR amount, return null
   if (sortedOptions.length >= 2) {
     if (sortedOptions[0].mkrSupport.isEqualTo(sortedOptions[1].mkrSupport)) {
       return null;

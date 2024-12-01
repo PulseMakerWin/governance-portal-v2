@@ -26,7 +26,7 @@ export const getDescription = ({
     if (isDelegate) {
       return (
         <Text as="p">
-          {'Balance of delegated MKR: ' + formatValue(votingWeight.chiefBalanceHot) + ' MKR'}
+          {'Balance of delegated pMKR: ' + formatValue(votingWeight.chiefBalanceHot) + ' pMKR'}
         </Text>
       );
     } else if (
@@ -37,25 +37,25 @@ export const getDescription = ({
       return (
         <>
           <Text as="p">
-            {'Proxy balance in chief: ' + formatValue(votingWeight.chiefBalanceProxy) + ' MKR'}
+            {'Proxy balance in chief: ' + formatValue(votingWeight.chiefBalanceProxy) + ' pMKR'}
           </Text>
-          <Text as="p">{'Hot balance in chief: ' + formatValue(votingWeight.chiefBalanceHot) + ' MKR'}</Text>
+          <Text as="p">{'Hot balance in chief: ' + formatValue(votingWeight.chiefBalanceHot) + ' pMKR'}</Text>
           <Text as="p">
-            {'Hot balance in wallet: ' + formatValue(votingWeight.walletBalanceHot) + ' MKR'}
-          </Text>
-          <Text as="p">
-            {'Cold balance in chief: ' + formatValue(votingWeight.chiefBalanceCold) + ' MKR'}
+            {'Hot balance in wallet: ' + formatValue(votingWeight.walletBalanceHot) + ' pMKR'}
           </Text>
           <Text as="p">
-            {'Cold balance in wallet: ' + formatValue(votingWeight.walletBalanceCold) + ' MKR'}
+            {'Cold balance in chief: ' + formatValue(votingWeight.chiefBalanceCold) + ' pMKR'}
+          </Text>
+          <Text as="p">
+            {'Cold balance in wallet: ' + formatValue(votingWeight.walletBalanceCold) + ' pMKR'}
           </Text>
         </>
       );
     } else {
       return (
         <>
-          <Text as="p">{'Balance in chief: ' + formatValue(votingWeight.chiefBalanceHot) + ' MKR'}</Text>
-          <Text as="p">{'Balance in wallet: ' + formatValue(votingWeight.walletBalanceHot) + ' MKR'}</Text>
+          <Text as="p">{'Balance in chief: ' + formatValue(votingWeight.chiefBalanceHot) + ' pMKR'}</Text>
+          <Text as="p">{'Balance in wallet: ' + formatValue(votingWeight.walletBalanceHot) + ' pMKR'}</Text>
         </>
       );
     }
@@ -99,7 +99,7 @@ export default function VotingWeight(): JSX.Element {
           </Box>
         </Tooltip>
       </Flex>
-      <Text sx={{ color: 'text' }}>{votingWeight ? `${formatValue(votingWeight.total)} MKR` : '--'}</Text>
+      <Text sx={{ color: 'text' }}>{votingWeight ? `${formatValue(votingWeight.total)} pMKR` : '--'}</Text>
     </Flex>
   );
 }

@@ -40,7 +40,7 @@ export const getMigrationBannerContent = ({
     return {
       variant: 'bannerWarning',
       href: '/migration/delegator',
-      copy: 'You have MKR delegated to a contract that has expired. Please visit the migration page to delegate your MKR to a new delegate contract.'
+      copy: 'You have pMKR delegated to a contract that has expired. Please visit the migration page to delegate your pMKR to a new delegate contract.'
     };
   }
 
@@ -49,7 +49,7 @@ export const getMigrationBannerContent = ({
     return {
       variant: 'bannerNotice',
       href: '/migration/delegator',
-      copy: 'You have MKR delegated to a contract that is expiring soon. Please visit the migration page to delegate your MKR to a new delegate contract.'
+      copy: 'You have pMKR delegated to a contract that is expiring soon. Please visit the migration page to delegate your pMKR to a new delegate contract.'
     };
   }
 

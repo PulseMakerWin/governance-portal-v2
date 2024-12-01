@@ -96,7 +96,7 @@ const ESMHistory = ({ allEsmJoins }: Props): JSX.Element => {
                           {amount.gte(0.1)
                             ? formatRound(amount.toNumber())
                             : formatRound(amount.toNumber(), 3)}{' '}
-                          MKR
+                          pMKR
                         </Text>
                       </td>
                       <td>

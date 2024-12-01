@@ -68,7 +68,7 @@ export default function VoteBreakdown({
                         textAlign: 'right'
                       }}
                     >
-                      {`${formatValue(parseUnits(mkrSupport.toString()))} MKR Voting`}
+                      {`${formatValue(parseUnits(mkrSupport.toString()))} pMKR Voting`}
                       {!isResultDisplayApprovalBreakdown(poll.parameters)
                         ? ` (${formatValue(parseUnits(tallyResult.firstPct.toString()))}%)`
                         : ''}
@@ -134,7 +134,7 @@ export default function VoteBreakdown({
                     >
                       {`${formatValue(
                         parseUnits(firstChoice.plus(transfer).toString())
-                      )} MKR Voting (${formatValue(
+                      )} pMKR Voting (${formatValue(
                         parseUnits(
                           new BigNumberJS(tallyResult.firstPct).plus(tallyResult?.transferPct || 0).toString()
                         )
@@ -220,7 +220,7 @@ export default function VoteBreakdown({
                       textAlign: 'right'
                     }}
                   >
-                    {`${formatValue(parseUnits(mkrSupport.toString()))} MKR Voting (${formatValue(
+                    {`${formatValue(parseUnits(mkrSupport.toString()))} pMKR Voting (${formatValue(
                       parseUnits(tallyResult.firstPct.toString())
                     )}%)`}
                   </Text>

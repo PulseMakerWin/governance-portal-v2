@@ -24,6 +24,7 @@ export default withApiHandler(async (req: NextApiRequest, res: NextApiResponse) 
   const data = config.GITHUB_TOKEN ? await getRateLimit(config.GITHUB_TOKEN) : '';
   const data2 = config.GITHUB_TOKEN_2 ? await getRateLimit(config.GITHUB_TOKEN_2) : '';
   const data3 = config.GITHUB_TOKEN_3 ? await getRateLimit(config.GITHUB_TOKEN_3) : '';
+  const data4 = config.GITHUB_TOKEN_4 ? await getRateLimit(config.GITHUB_TOKEN_4) : '';
   res.setHeader('Cache-Control', 's-maxage=30, stale-while-revalidate');
-  res.status(200).json({ 1: data, 2: data2, 3: data3 });
+  res.status(200).json({ 1: data, 2: data2, 3: data3, 4: data4 });
 });

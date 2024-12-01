@@ -355,9 +355,9 @@ export const mockPollList: PollListItem[] = [
       ]
     },
     title:
-      'Budget Ratification Poll for GovAlpha Core Unit MKR Budget Q2 2023 (MIP40c3-SP91) - March 13, 2023',
+      'Budget Ratification Poll for GovAlpha Core Unit pMKR Budget Q2 2023 (MIP40c3-SP91) - March 13, 2023',
     summary:
-      'This budget adds an MKR compensation plan for GovAlpha (GOV-001) covering the period from 2022-08-01 onwards.',
+      'This budget adds an pMKR compensation plan for GovAlpha (GOV-001) covering the period from 2022-08-01 onwards.',
     options: { '0': 'Abstain', '1': 'Yes', '2': 'No' },
     tags: ['high-impact', 'ratification', 'mips', 'budget']
   },
@@ -413,7 +413,7 @@ export const mockPollList: PollListItem[] = [
       ]
     },
     title: 'Ratification Poll for Modify Core Unit Budget (DECO-001) (MIP40c3-SP89) - March 13, 2023',
-    summary: 'End streaming of new funds and vesting of MKR to DECO on May 31st.',
+    summary: 'End streaming of new funds and vesting of pMKR to DECO on May 31st.',
     options: { '0': 'Abstain', '1': 'Yes', '2': 'No' },
     tags: ['high-impact', 'ratification', 'mips', 'budget']
   },

@@ -37,7 +37,7 @@ export default function VotingWeight(): JSX.Element {
       </Flex>
       <Flex>
         <Text sx={{ fontSize: 5 }} data-testid="polling-voting-weight">
-          {votingWeight ? `${formatValue(votingWeight.total)} MKR` : '--'}
+          {votingWeight ? `${formatValue(votingWeight.total)} pMKR` : '--'}
         </Text>
       </Flex>
       <Flex sx={{ py: 1 }}>
@@ -50,7 +50,7 @@ export default function VotingWeight(): JSX.Element {
       </Flex>
       <Flex>
         <Text sx={{ fontSize: 5 }}>
-          {votingWeight ? `${formatValue(votingWeight.chiefTotal)} MKR` : '--'}
+          {votingWeight ? `${formatValue(votingWeight.chiefTotal)} pMKR` : '--'}
         </Text>
       </Flex>
       <Flex sx={{ py: 1 }}>

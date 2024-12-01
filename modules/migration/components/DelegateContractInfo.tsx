@@ -95,9 +95,9 @@ export default function DelegateContractInfo({
                 </Heading>
                 <Text sx={{ mb: 3, color: 'onSecondary', textAlign: 'center' }}>
                   Maker delegate contracts expire after 1 year. Please{' '}
-                  <InternalLink href="/migration/delegator" title="Migrate your MKR">
+                  <InternalLink href="/migration/delegator" title="Migrate your pMKR">
                     <Text as={'span'} sx={{ color: 'accentBlue' }}>
-                      migrate your MKR
+                      migrate your pMKR
                     </Text>
                   </InternalLink>{' '}
                   by undelegating from the expiring/expired contracts and redelegating to the new contracts.

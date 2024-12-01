@@ -86,7 +86,7 @@ const CollapsableRow = ({ delegator, network, bpi, totalDelegated }: Collapsable
       </Flex>
       <Box as="td" sx={{ verticalAlign: 'top', pt: 2 }}>
         <Text sx={{ fontSize: [1, 3] }}>
-          {`${formatValue(parseUnits(lockAmount))}${bpi > 0 ? ' MKR' : ''}`}
+          {`${formatValue(parseUnits(lockAmount))}${bpi > 0 ? ' pMKR' : ''}`}
         </Text>
         {expanded && (
           <Flex sx={{ flexDirection: 'column' }}>
@@ -108,7 +108,7 @@ const CollapsableRow = ({ delegator, network, bpi, totalDelegated }: Collapsable
                   <Text key={blockTimestamp} variant="smallCaps" sx={{ pl: 2 }}>
                     {`${formatValue(
                       parseUnits(lockAmount.indexOf('-') === 0 ? lockAmount.substring(1) : lockAmount)
-                    )}${bpi > 0 ? ' MKR' : ''}`}
+                    )}${bpi > 0 ? ' pMKR' : ''}`}
                   </Text>
                 </Flex>
               );
@@ -260,7 +260,7 @@ const DelegatedByAddress = ({ delegators, totalDelegated }: DelegatedByAddressPr
               variant="caps"
               onClick={() => changeSort('mkr')}
             >
-              {bpi < 1 ? 'MKR' : 'MKR Delegated'}
+              {bpi < 1 ? 'pMKR' : 'pMKR Delegated'}
               {sortBy.type === 'mkr' ? (
                 sortBy.order === 1 ? (
                   <Icon name="chevron_down" size={2} ml={1} />

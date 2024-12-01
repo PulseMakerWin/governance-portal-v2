@@ -123,7 +123,7 @@ describe('Fetch tally approval', () => {
     expect(result).toEqual(expect.objectContaining(expectedResult));
   });
 
-  it('gives no option as winner if both have the same MKR voting weight', async () => {
+  it('gives no option as winner if both have the same pMKR voting weight', async () => {
     (gqlRequest as jest.Mock).mockResolvedValueOnce({
       voteAddressMkrWeightsAtTime: {
         nodes: [

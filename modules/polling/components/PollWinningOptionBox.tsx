@@ -53,7 +53,7 @@ export default function PollWinningOptionBox({
   const comparisonText =
     hasComparison.length > 0 &&
     hasComparison[0].comparator === '>=' &&
-    ` Requires ${formatValue(parseUnits(hasComparison[0].value.toString()))} MKR participation. `;
+    ` Requires ${formatValue(parseUnits(hasComparison[0].value.toString()))} pMKR participation. `;
 
   if (winningVictoryCondition && winningVictoryCondition.type === PollVictoryConditions.default) {
     textWin = `No winner condition met.${comparisonText ? comparisonText : ' '}Defaulting to`;
@@ -93,7 +93,7 @@ export default function PollWinningOptionBox({
                             ?.mkrSupport.toString() || '0'
                         )
                       ) +
-                      ' MKR supporting.'}
+                      ' pMKR supporting.'}
                   {!isDefault &&
                     isInputFormatRankFree(poll.parameters) &&
                     ' with ' +
@@ -104,7 +104,7 @@ export default function PollWinningOptionBox({
                             ?.mkrSupport.toString() || '0'
                         )
                       ) +
-                      ' MKR supporting as first choice.'}
+                      ' pMKR supporting as first choice.'}
                   {isDefault && '.'}
                 </>
               </StatusText>

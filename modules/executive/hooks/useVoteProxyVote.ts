@@ -60,7 +60,7 @@ export const useVoteProxyVote = (): VoteResponse => {
         if (typeof callbacks?.mined === 'function') callbacks.mined(txId);
       },
       error: txId => {
-        transactionsApi.getState().setMessage(txId, 'MKR deposit failed');
+        transactionsApi.getState().setMessage(txId, 'pMKR deposit failed');
         if (typeof callbacks?.error === 'function') callbacks.error(txId);
       }
     });

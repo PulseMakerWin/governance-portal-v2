@@ -52,7 +52,7 @@ export function DelegateMKRDelegatedStats({
             'Untracked'
           )
         }
-        label={'Total MKR Delegated'}
+        label={'Total pMKR Delegated'}
         tooltip={
           <Tooltip label={getDescription({ votingWeight, isDelegate: true })}>
             <Box>

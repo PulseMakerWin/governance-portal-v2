@@ -48,7 +48,7 @@ export const useEsmBurn = (): BurnResponse => {
       return sendTransaction(populatedTransaction, provider, account);
     };
 
-    const txId = track(burnTxCreator, account, 'Burning MKR in Emergency Shutdown Module', {
+    const txId = track(burnTxCreator, account, 'Burning pMKR in Emergency Shutdown Module', {
       initialized: () => {
         if (typeof callbacks?.initialized === 'function') callbacks.initialized();
       },
@@ -56,7 +56,7 @@ export const useEsmBurn = (): BurnResponse => {
         if (typeof callbacks?.pending === 'function') callbacks.pending();
       },
       mined: txId => {
-        transactionsApi.getState().setMessage(txId, 'Burned MKR in Emergency Shutdown Module');
+        transactionsApi.getState().setMessage(txId, 'Burned pMKR in Emergency Shutdown Module');
         if (typeof callbacks?.mined === 'function') callbacks.mined();
       },
       error: () => {

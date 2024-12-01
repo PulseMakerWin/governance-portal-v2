@@ -33,7 +33,7 @@ export const ExecutiveBalance = ({
       </Text>
       {lockedMkr ? (
         <Text sx={{ fontWeight: 'bold' }} data-testid="locked-mkr">
-          {formatValue(lockedMkr, 'wad', 6)} MKR
+          {formatValue(lockedMkr, 'wad', 6)} pMKR
         </Text>
       ) : (
         <Box sx={{ width: 6 }}>

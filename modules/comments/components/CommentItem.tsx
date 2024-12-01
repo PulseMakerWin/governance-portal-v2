@@ -72,7 +72,7 @@ export default function CommentItem({
                   undefined,
                   true,
                   true
-                )} MKR`}
+                )} pMKR`}
           </Text>
 
           {comment.comment.txHash && (

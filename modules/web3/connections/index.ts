@@ -69,7 +69,7 @@ export const metamaskConnection: Connection = {
         metadata: {
           name: 'Maker Governance - Governance Portal',
           description:
-            'The MakerDAO Governance Portal allows for anyone to view governance proposals, and also allows for MKR holders to vote',
+            'The MakerDAO Governance Portal allows for anyone to view governance proposals, and also allows for pMKR holders to vote',
           url: 'https://vote.makerdao.com',
           icons: ['https://vote.makerdao.com/maker.svg']
         },

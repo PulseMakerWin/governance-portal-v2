@@ -22,15 +22,15 @@ export function SystemStats(): JSX.Element {
 
   const infoUnits = [
     {
-      title: 'Dai Savings Rate',
+      title: 'pDAI Savings Rate',
       value: daiSavingsRate ? `${daiSavingsRate.toFixed(2)}%` : <Skeleton />
     },
     {
-      title: 'Total Dai',
+      title: 'Total pDAI',
       value: totalDai ? `${formatValue(totalDai, 'rad')} DAI` : <Skeleton />
     },
     {
-      title: 'Dai Debt Ceiling',
+      title: 'pDAI Debt Ceiling',
       value: debtCeiling ? `${formatValue(debtCeiling, 'rad')} DAI` : <Skeleton />
     },
     {

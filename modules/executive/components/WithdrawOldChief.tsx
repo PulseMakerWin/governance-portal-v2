@@ -85,15 +85,15 @@ const ModalContent = ({ close, ...props }) => {
         {!transaction && allowanceOk && (
           <Stack gap={3}>
             <Box sx={{ textAlign: 'center' }}>
-              <Text variant="microHeading">Withdraw MKR from Chief</Text>
+              <Text variant="microHeading">Withdraw pMKR from Chief</Text>
               <Text sx={{ color: 'text', fontSize: 3, mt: 3 }}>
-                You are withdrawing <b>{lockedMkr ? formatValue(lockedMkr) : '---'} MKR</b> from the old Chief
+                You are withdrawing <b>{lockedMkr ? formatValue(lockedMkr) : '---'} pMKR</b> from the old Chief
                 contract back to your wallet.
               </Text>
             </Box>
             {voteProxyOldContractAddress && voteProxyOldHotAddress && (
               <Alert variant="notice" sx={{ fontWeight: 'normal' }}>
-                You are using the hot wallet for a voting proxy. MKR will be withdrawn to the cold wallet.
+                You are using the hot wallet for a voting proxy. pMKR will be withdrawn to the cold wallet.
               </Alert>
             )}
             <Button
@@ -106,7 +106,7 @@ const ModalContent = ({ close, ...props }) => {
                 });
               }}
             >
-              Withdraw MKR
+              Withdraw pMKR
             </Button>
           </Stack>
         )}
@@ -117,7 +117,7 @@ const ModalContent = ({ close, ...props }) => {
                 Approve voting contract
               </Text>
               <Text sx={{ color: 'secondaryEmphasis', fontSize: 3 }}>
-                Approve the transfer of IOU tokens to the voting contract to withdraw your MKR.
+                Approve the transfer of IOU tokens to the voting contract to withdraw your pMKR.
               </Text>
             </Box>
 

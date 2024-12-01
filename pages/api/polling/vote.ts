@@ -145,7 +145,7 @@ export default withApiHandler(
           ballotIncludesAlreadyVoted(voter, network, pollIds)
         ]);
 
-      //verify address has a poll weight > 0.1 MKR
+      //verify address has a poll weight > 0.1 pMKR
       if (!hasMkrRequired) {
         //ether's bignumber library doesnt handle decimals
         await throwError({
