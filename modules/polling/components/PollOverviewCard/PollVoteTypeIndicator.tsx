@@ -41,10 +41,10 @@ const PollTypesModal = ({ iconName }) => {
                 <Heading sx={{ mb: 3 }}>Poll types</Heading>
                 <Text as="p" sx={{ mb: 3 }}>
                   - Ranked-choice polls: require multiple-choice ballots in ranked order, and determine the
-                  winning vote option by finding the one with an absolute majority in pMKR voting weight (as in
-                  &gt;50% of the total participating pMKR, excluding abstains). In the first round of IRV, only
-                  first-choice votes are counted. In case no vote option meets the victory requirements, the
-                  least popular vote option (except abstain) is eliminated and the votes applied to that
+                  winning vote option by finding the one with an absolute majority in pMKR voting weight (as
+                  in &gt;50% of the total participating pMKR, excluding abstains). In the first round of IRV,
+                  only first-choice votes are counted. In case no vote option meets the victory requirements,
+                  the least popular vote option (except abstain) is eliminated and the votes applied to that
                   option are instead applied to the voters’ next ranked option. This repeats until the victory
                   conditions have been met by one vote option. If no winning option can be found, tally
                   results are shown as if no IRV rounds were run.
@@ -57,8 +57,8 @@ const PollTypesModal = ({ iconName }) => {
                   - Approval polls: require multiple-choice ballots in unranked order, and determines the
                   winning vote option by finding the one with a relative majority in pMKR voting weight. When
                   used in situations where no winner is required, an absolute majority (ie. &gt;50% of the
-                  total participating pMKR excluding abstains) victory condition may also be applied as opposed
-                  to a relative majority.
+                  total participating pMKR excluding abstains) victory condition may also be applied as
+                  opposed to a relative majority.
                 </Text>
                 <Text as="p">
                   - Majority polls: require single-choice ballots and determines the winning vote option by

@@ -57,8 +57,8 @@ const MKRAmount = ({
       <MKRAmountView setBurnAmount={setBurnAmount} burnAmount={burnAmount} mkrBalance={mkrBalance} />
       {lockedInChief ? (
         <Alert variant="notice">
-          You have {formatValue(lockedInChief)} pMKR locked in DSChief. Withdraw pMKR from DSChief to burn it in
-          the ESM.
+          You have {formatValue(lockedInChief)} pMKR locked in DSChief. Withdraw pMKR from DSChief to burn it
+          in the ESM.
         </Alert>
       ) : null}
       <Grid columns={[1, 2]} mt={4} sx={{ width: bpi < 1 ? '100%' : undefined }}>

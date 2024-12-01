@@ -39,9 +39,9 @@ const ModalContent = ({
         Shutting down the pDAI Credit System
       </Text>
       <Text variant="text" sx={{ mt: 3 }}>
-        The {thresholdAmount ? `${formatValue(thresholdAmount)}` : '---'} pMKR limit for the emergency shutdown
-        module has been reached. By continuing past this alert, emergency shutdown will be initiated for the
-        pDAI Credit System.
+        The {thresholdAmount ? `${formatValue(thresholdAmount)}` : '---'} pMKR limit for the emergency
+        shutdown module has been reached. By continuing past this alert, emergency shutdown will be initiated
+        for the pDAI Credit System.
       </Text>
       <Grid columns={2} mt={4}>
         <Button onClick={close} variant="outline" sx={{ color: '#9FAFB9', borderColor: '#9FAFB9' }}>

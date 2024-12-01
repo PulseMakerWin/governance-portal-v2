@@ -87,8 +87,8 @@ const ModalContent = ({ close, ...props }) => {
             <Box sx={{ textAlign: 'center' }}>
               <Text variant="microHeading">Withdraw pMKR from Chief</Text>
               <Text sx={{ color: 'text', fontSize: 3, mt: 3 }}>
-                You are withdrawing <b>{lockedMkr ? formatValue(lockedMkr) : '---'} pMKR</b> from the old Chief
-                contract back to your wallet.
+                You are withdrawing <b>{lockedMkr ? formatValue(lockedMkr) : '---'} pMKR</b> from the old
+                Chief contract back to your wallet.
               </Text>
             </Box>
             {voteProxyOldContractAddress && voteProxyOldHotAddress && (

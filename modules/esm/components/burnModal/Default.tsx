@@ -22,8 +22,8 @@ const DefaultScreen = ({ setShowDialog, setStep }: Props): JSX.Element => (
       Are you sure you want to burn pMKR?
     </Text>
     <Text variant="text" sx={{ mt: 3, textAlign: 'center' }}>
-      By burning your pMKR in the ESM, you are contributing to the shutdown of the Dai Credit System. Your pMKR
-      will be immediately burned and cannot be retrieved.
+      By burning your pMKR in the ESM, you are contributing to the shutdown of the Dai Credit System. Your
+      pMKR will be immediately burned and cannot be retrieved.
     </Text>
     <Grid columns={2} mt={4}>
       <Button

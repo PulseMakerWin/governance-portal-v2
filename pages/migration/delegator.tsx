@@ -138,8 +138,8 @@ export default function DelegateMigrationPage(): React.ReactElement {
                     redelegating to the new contracts.
                   </Text>
                   <Text as="p" variant="secondary">
-                    On this page you&apos;ll find your delegates that require migrating your delegated pMKR due
-                    to expiration.
+                    On this page you&apos;ll find your delegates that require migrating your delegated pMKR
+                    due to expiration.
                   </Text>
                 </Box>
               </Card>
